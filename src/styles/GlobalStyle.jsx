@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     ${reset};
 
     body {    
+        
     }
 `;
 
