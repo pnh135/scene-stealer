@@ -1,9 +1,12 @@
 import React from "react";
+import PublicInputs from "../components/PublicInputs";
 
 const Home = () => {
   return (
     <>
-      <div>test</div>
+      <div>
+        <PublicInputs />
+      </div>
     </>
   );
 };
