@@ -1,12 +1,38 @@
+
 import styled from 'styled-components';
 
 const Side = () => {
+  
   return (
     <GrandfatherStyledDiv>
-      <StyledButton>피드추가</StyledButton>
-      <StyledButton>북마크</StyledButton>
-      <StyledButton>알림</StyledButton>
-      <StyledButton>설정</StyledButton>
+      <StyledButton
+        onClick={() => {
+        
+        }}
+      >
+        피드추가
+      </StyledButton>
+      <StyledButton
+        onClick={() => {
+          
+        }}
+      >
+        북마크
+      </StyledButton>
+      <StyledButton
+        onClick={() => {
+          return;
+        }}
+      >
+        알림
+      </StyledButton>
+      <StyledButton
+        onClick={() => {
+          return;
+        }}
+      >
+        설정
+      </StyledButton>
     </GrandfatherStyledDiv>
   );
 };
