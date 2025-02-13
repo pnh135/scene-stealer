@@ -1,6 +1,5 @@
-import react from "react";
-import Router from "./shared/Router";
-import "./App.css";
+import react from 'react';
+import Router from './shared/Router';
 
 function App() {
   return (
