@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Modal = ({ isOpen, handleModal }) => {
   return (
-    <StdModal isOpen={isOpen}>
+    <StdModal $isOpen={isOpen}>
       <p>Modal</p>
       <button onClick={handleModal}>닫기</button>
     </StdModal>
