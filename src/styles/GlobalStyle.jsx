@@ -4,14 +4,36 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
     ${reset};
 
-    body {    
+    * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-        display: flex;
-        place-items: center;
+    }
+
+    body {    
         min-width: 320px;
         min-height: 100vh;
+        font-family: 'Arial', sans-serif;
+        line-height: 1.5;
+        color: #333;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul, ol {
+        list-style: none;
+    }
+
+    button {
+        all: unset;
+        cursor: pointer;
+    }
+
+    input, textarea {
+        outline: none;
+        border: none;
     }
 `;
 
