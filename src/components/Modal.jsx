@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Modal = ({ isOpen, handleModal }) => {
+  console.log({ isOpen });
   return (
     <StdModal $isOpen={isOpen}>
       <p>Modal</p>
