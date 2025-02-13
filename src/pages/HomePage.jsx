@@ -1,23 +1,53 @@
+import styled from 'styled-components';
+
 const HomePage = () => {
   return (
-    <div>
-      <header>
-        <div>로고</div>
-        <div>검색창</div>
-        <div>
-          <div>로그인</div>
-          <div>회원가입</div>
-        </div>
-      </header>
-      <aside>
-        <div>피드 추가</div>
-        <div>북마크</div>
-        <div>알림</div>
-        <div>설정</div>
-      </aside>
-      <footer>푸터</footer>
-    </div>
+    <HomePageContainer>
+      <HomePageWrapper>
+        <HomePageHeader>header</HomePageHeader>
+        <HomePageContent>
+          <HomePageAside>side</HomePageAside>
+          <HomePageMain>main</HomePageMain>
+        </HomePageContent>
+        <HomePageFooter>footer</HomePageFooter>
+      </HomePageWrapper>
+    </HomePageContainer>
   );
 };
+
+const HomePageContainer = styled.main`
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+`;
+
+const HomePageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const HomePageHeader = styled.header`
+  background-color: lightcoral;
+`;
+
+const HomePageContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: lightblue;
+`;
+
+const HomePageAside = styled.aside`
+  background-color: yellowgreen;
+  flex: 1;
+`;
+
+const HomePageMain = styled.div`
+  background-color: orange;
+  flex: 10;
+`;
+
+const HomePageFooter = styled.footer`
+  background-color: gray;
+`;
 
 export default HomePage;
