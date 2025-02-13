@@ -20,6 +20,4 @@ const HomePage = () => {
   );
 };
 
-// const homeWarrper
-
 export default HomePage;
