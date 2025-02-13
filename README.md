@@ -9,3 +9,4 @@
   2. prettierrc 추가 완료
   3. supabase 셋업 파일만 추가 완료
   4. 환경변수(.env.local) 파일만 추가 완료
+
