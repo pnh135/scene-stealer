@@ -1,20 +1,20 @@
-
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Side = () => {
-  
+  const navigate = useNavigate();
   return (
     <GrandfatherStyledDiv>
       <StyledButton
         onClick={() => {
-        
+          navigate('/AddFeed');
         }}
       >
         피드추가
       </StyledButton>
       <StyledButton
         onClick={() => {
-          
+          navigate('/Bookmarks');
         }}
       >
         북마크
