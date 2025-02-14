@@ -1,9 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-
 import HomePage from '../pages/HomePage';
 import MainPage from '../pages/MainPage';
-import SideBar from '../components/SideBar';
 import AddFeedPage from '../pages/AddFeedPage';
 import BookmarksPage from '../pages/BookmarksPage';
 
@@ -13,9 +10,8 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/main" element={<MainPage />} />
-        <Route path="/" element={<SideBar />} />
-        <Route path="/add-feed" element={<AddFeedPage />} />
-        <Route path="/bookmarks" element={<BookmarksPage />} />
+        <Route path="/main/add-feed" element={<AddFeedPage />} />
+        <Route path="/main/bookmarks" element={<BookmarksPage />} />
       </Routes>
     </BrowserRouter>
   );
