@@ -1,9 +1,12 @@
 import React from "react";
+import FeedList from "../components/FeedList";
 
 const Home = () => {
   return (
     <>
-      <div>test</div>
+      <div>
+        <FeedList/>
+      </div>
     </>
   );
 };
