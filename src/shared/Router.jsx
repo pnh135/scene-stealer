@@ -3,7 +3,7 @@ import HomePage from '../pages/HomePage';
 import MainPage from '../pages/MainPage';
 import Side from '../pages/Side';
 import AddFeedPage from '../pages/AddFeedPage';
-import Bookmarks from '../pages/Bookmarks';
+import BookmarksPage from '../pages/BookmarksPage';
 
 const Router = () => {
   return (
@@ -13,7 +13,7 @@ const Router = () => {
         <Route path="/main" element={<MainPage />} />
         <Route path="/" element={<Side />} />
         <Route path="/add-feed" element={<AddFeedPage />} />
-        <Route path="/bookmarks" element={<Bookmarks />} />
+        <Route path="/bookmarks" element={<BookmarksPage />} />
       </Routes>
     </BrowserRouter>
   );
