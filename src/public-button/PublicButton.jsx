@@ -1,9 +1,9 @@
-import PublicGlobalStyle from './ButtonGlobalStyle';
+import PublicCommonStyle from './ButtonGlobalStyle';
 
 const PublicButton = () => {
   return (
     <div>
-      <PublicGlobalStyle>안녕하세요</PublicGlobalStyle>
+      <PublicCommonStyle>안녕하세요</PublicCommonStyle>
     </div>
   );
 };
