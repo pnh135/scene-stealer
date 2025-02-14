@@ -28,12 +28,16 @@ const SignupInputs = () => {
     const handleSignupSubmit = (e) => {
         e.preventDefault();
 
-        const { userName, userPw, userPwConfirm, userEmail } = signupInput;
+        const { userName, userId, userPw, userPwConfirm, userEmail } = signupInput;
         let errors = {};
 
         // 모든 값이 입력되었는지 확인
         if (!userName.trim()) {
             errors.userName = "이름을 입력해주세요.";
+        }
+
+        if (!userId.trim()) {
+            errors.userId = "아이디를 입력해주세요."
         }
 
         if (!userPwConfirm.trim()) {
@@ -72,14 +76,13 @@ const SignupInputs = () => {
         setSignupInput((prev) => ({
             ...prev,
             [name]: value,
-        })
-        );
+        }));
     };
 
     console.log(signupInput);
     return (
         <div>
-            <SignupInputBox onSubmit={handleSignupSubmit}>
+            <SignupInputForm onSubmit={handleSignupSubmit}>
                 <SignupInput
                     type="text"
                     name="userName"
@@ -87,7 +90,8 @@ const SignupInputs = () => {
                     onChange={handleSignupChange}
                     placeholder="이름"
                 />
-                {/* {signupErrors.userName && <ErrorMessage>{signupErrors.userName}</ErrorMessage>} */}
+                {signupErrors.userName && <ErrorMessage>{signupErrors.userName}</ErrorMessage>}
+                
                 <SignupInput
                     type="text"
                     name="userId"
@@ -95,7 +99,8 @@ const SignupInputs = () => {
                     onChange={handleSignupChange}
                     placeholder="아이디"
                 />
-                {/* {signupErrors.userId && <ErrorMessage>{signupErrors.userId}</ErrorMessage>} */}
+                {signupErrors.userId && <ErrorMessage>{signupErrors.userId}</ErrorMessage>}
+                
                 <SignupInput
                     type="password"
                     name="userPw"
@@ -104,6 +109,7 @@ const SignupInputs = () => {
                     placeholder="비밀번호"
                 />
                 {signupErrors.userPw && <ErrorMessage>{signupErrors.userPw}</ErrorMessage>}
+                
                 <SignupInput
                     type="password"
                     name="userPwConfirm"
@@ -112,14 +118,23 @@ const SignupInputs = () => {
                     placeholder="비밀번호 확인"
                 />
                 {signupErrors.userPwConfirm && <ErrorMessage>{signupErrors.userPwConfirm}</ErrorMessage>}
+                
+                <SignupInput
+                    type="text"
+                    name="userEmail"
+                    value={signupInput.userEmail}
+                    onChange={handleSignupChange}
+                    placeholder="이메일"
+                />
+                {signupErrors.userEmail && <ErrorMessage>{signupErrors.userEmail}</ErrorMessage>}
                 <SignupButton type="submit">회원가입</SignupButton>
-            </SignupInputBox>
+            </SignupInputForm>
         </div>
     )
 };
 
 
-const SignupInputBox = styled.form`
+const SignupInputForm = styled.form`
     display: flex;
     flex-direction: column;
     margin: 1rem;

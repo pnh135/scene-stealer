@@ -31,7 +31,6 @@ const LoginInputs = () => {
         // 아이디가 비어있는지 확인
         if (!userId.trim()) {
             errors.userId = "아이디를 입력해주세요."
-
         }
 
         // 비밀번호가 비어있는지 확인
@@ -54,7 +53,7 @@ const LoginInputs = () => {
     return (
         <div>
             {/* 로그인 */}
-            <LoginInputBox onSubmit={handleLoginSubmit}>
+            <LoginInputForm onSubmit={handleLoginSubmit}>
                 <LoginInput
                     type="text"
                     name="userId"
@@ -63,6 +62,7 @@ const LoginInputs = () => {
                     placeholder="아이디"
                 />
                 {loginErrors.userId && <ErrorMessage>{loginErrors.userId}</ErrorMessage>}
+                
                 <LoginInput
                     type="password"
                     name="userPw"
@@ -71,13 +71,14 @@ const LoginInputs = () => {
                     placeholder="비밀번호"
                 />
                 {loginErrors.userPw && <ErrorMessage>{loginErrors.userPw}</ErrorMessage>}
+                
                 <LoginButton type="submit">로그인</LoginButton>
-            </LoginInputBox>
+            </LoginInputForm>
         </div>
     )
 }
 
-const LoginInputBox = styled.form`
+const LoginInputForm = styled.form`
     display: flex;
     flex-direction: column;
     margin: 1rem;
