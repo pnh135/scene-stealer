@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Side from '../components/SideBar';
+import SideBar from '../components/SideBar';
 import MainHeader from '../components/MainHeader';
 import { Link } from 'react-router-dom';
 
@@ -9,13 +9,12 @@ const MainPage = () => {
       <Link to="/">
         <button>홈페이지로 이동하기</button>
       </Link>
-
       <MainPageContainer>
         <MainPageWrapper>
           <MainHeader />
           <MainPageContent>
             <MainPageAside>
-              <Side />
+              <SideBar />
             </MainPageAside>
             <MainPageMain>main</MainPageMain>
           </MainPageContent>
