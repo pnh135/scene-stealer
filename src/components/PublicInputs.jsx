@@ -59,6 +59,7 @@ const PublicInputs = () => {
         setLoginErrors(errors);
     };
 
+
     // 회원가입 유효성 검사
     const handleSignupSubmit = (e) => {
         e.preventDefault();
@@ -66,14 +67,16 @@ const PublicInputs = () => {
         const { userName, userId, userPw, userPwConfirm } = signupInput;
         let errors = {};
 
-        // 모든 값이 입력되었는지 확인
-        if (!userName.trim() || !userId.trim() || !userPw.trim() || !userPwConfirm.trim()) {
-            errors.userName = "모든 입력칸을 채워주세요.";
-            errors.userId = "모든 입력칸을 채워주세요.";
-            errors.userPw = "모든 입력칸을 채워주세요.";
-            errors.userPwConfirm = "모든 입력칸을 채워주세요.";
-        }
+    // 모든 값이 입력되었는지 확인
+    if (!userName.trim()) {
+        errors.userName = "이름을 입력해주세요.";
+    }
 
+    if (!userPwConfirm.trim()) {
+        errors.userPwConfirm = "비밀번호 확인을 입력해주세요.";
+    }
+
+    
         // 아이디 유효성 (이메일 형식)
         const idRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
         if (!idRegex.test(userId)) {
@@ -102,7 +105,6 @@ const PublicInputs = () => {
             [name]: value,
         }));
     };
-
 
     // 회원가입 입력값 관리
     const handleSignupChange = (e) => {
@@ -155,7 +157,7 @@ const PublicInputs = () => {
                         onChange={handleSignupChange}
                         placeholder="아이디"
                     />
-                    {signupErrors.userId && <ErrorMessage>{signupErrors.useId}</ErrorMessage>}
+                    {signupErrors.userId && <ErrorMessage>{signupErrors.userId}</ErrorMessage>}
                     <SignupInputs
                         type="password"
                         name="userPw"
