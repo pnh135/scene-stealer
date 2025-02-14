@@ -1,38 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Side = () => {
-  const navigate = useNavigate();
   return (
     <GrandfatherStyledDiv>
-      <StyledButton
-        onClick={() => {
-          navigate('/AddFeed');
-        }}
-      >
-        피드추가
-      </StyledButton>
-      <StyledButton
-        onClick={() => {
-          navigate('/Bookmarks');
-        }}
-      >
-        북마크
-      </StyledButton>
-      <StyledButton
-        onClick={() => {
-          return;
-        }}
-      >
-        알림
-      </StyledButton>
-      <StyledButton
-        onClick={() => {
-          return;
-        }}
-      >
-        설정
-      </StyledButton>
+      <Link to="/add-feed">
+        <StyledButton>피드추가</StyledButton>
+      </Link>
+      <Link to="/bookmarks">
+        <StyledButton>북마크</StyledButton>
+      </Link>
+      <StyledButton>알림</StyledButton>
+      <StyledButton>설정</StyledButton>
     </GrandfatherStyledDiv>
   );
 };

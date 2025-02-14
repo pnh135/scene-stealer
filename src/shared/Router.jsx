@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Side from '../pages/Side';
 import Bookmarks from '../pages/Bookmarks';
-import { AddFeed } from '../pages/AddFeed';
+import AddFeed from '../pages/AddFeed';
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Side />} />
-        <Route path="/feed/new" element={<AddFeed />} />
+        <Route path="/add-feed" element={<AddFeed />} />
         <Route path="/bookmarks" element={<Bookmarks />} />
       </Routes>
     </BrowserRouter>
