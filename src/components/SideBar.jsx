@@ -3,20 +3,20 @@ import styled from 'styled-components';
 
 const SideBar = () => {
   return (
-    <GrandfatherStyledDiv>
+    <SideBarWrapper>
       <Link to="/add-feed">
-        <StyledButton>피드추가</StyledButton>
+        <SideBarButton>피드추가</SideBarButton>
       </Link>
       <Link to="/bookmarks">
-        <StyledButton>북마크</StyledButton>
+        <SideBarButton>북마크</SideBarButton>
       </Link>
-      <StyledButton>알림</StyledButton>
-      <StyledButton>설정</StyledButton>
-    </GrandfatherStyledDiv>
+      <SideBarButton>알림</SideBarButton>
+      <SideBarButton>설정</SideBarButton>
+    </SideBarWrapper>
   );
 };
 
-const GrandfatherStyledDiv = styled.div`
+const SideBarWrapper = styled.div`
   background-color: #d6dad5;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,8 @@ const GrandfatherStyledDiv = styled.div`
   margin-top: -10px;
   margin-left: -10px;
 `;
-const StyledButton = styled.button`
+
+const SideBarButton = styled.button`
   width: 100px;
   height: 100px;
   background-color: #e90d0df7;
