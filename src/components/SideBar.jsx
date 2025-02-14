@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Side = () => {
+const SideBar = () => {
   return (
     <GrandfatherStyledDiv>
       <Link to="/add-feed">
@@ -36,4 +36,5 @@ const StyledButton = styled.button`
   align-items: center;
   margin: 30px;
 `;
-export default Side;
+
+export default SideBar;
