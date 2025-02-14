@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import SideBar from '../components/SideBar';
 import MainHeader from '../components/MainHeader';
 import { Link } from 'react-router-dom';
+import FeedList from '../components/FeedList';
 
 const MainPage = () => {
   return (
@@ -16,7 +17,9 @@ const MainPage = () => {
             <MainPageAside>
               <SideBar />
             </MainPageAside>
-            <MainPageMain>main</MainPageMain>
+            <MainPageMain>
+              <FeedList />
+            </MainPageMain>
           </MainPageContent>
           <MainPageFooter>Scene Stealer</MainPageFooter>
         </MainPageWrapper>
