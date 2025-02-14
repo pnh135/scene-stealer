@@ -17,7 +17,7 @@ const MainPage = () => {
             </MainPageAside>
             <MainPageMain>main</MainPageMain>
           </MainPageContent>
-          <MainPageFooter>footer</MainPageFooter>
+          <MainPageFooter>Scene Stealer</MainPageFooter>
         </MainPageWrapper>
       </MainPageContainer>
     </>
@@ -53,10 +53,13 @@ const MainPageAside = styled.aside`
 const MainPageMain = styled.div`
   background-color: orange;
   flex: 10;
+  /* height: 100vh; */
 `;
 
 const MainPageFooter = styled.footer`
-  background-color: gray;
+  background-color: #333;
+  color: white;
+  padding: 30px;
 `;
 
 export default MainPage;
