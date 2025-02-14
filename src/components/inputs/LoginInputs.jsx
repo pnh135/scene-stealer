@@ -62,7 +62,7 @@ const LoginInputs = () => {
                     placeholder="아이디"
                 />
                 {loginErrors.userId && <ErrorMessage>{loginErrors.userId}</ErrorMessage>}
-                
+
                 <LoginInput
                     type="password"
                     name="userPw"
@@ -71,7 +71,7 @@ const LoginInputs = () => {
                     placeholder="비밀번호"
                 />
                 {loginErrors.userPw && <ErrorMessage>{loginErrors.userPw}</ErrorMessage>}
-                
+
                 <LoginButton type="submit">로그인</LoginButton>
             </LoginInputForm>
         </div>
@@ -113,4 +113,5 @@ const ErrorMessage = styled.div`
 `;
 
 
+export { ErrorMessage };
 export default LoginInputs;
