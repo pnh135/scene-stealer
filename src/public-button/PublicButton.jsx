@@ -1,30 +1,11 @@
-import styled from 'styled-components';
+import PublicGlobalStyle from './ButtonGlobalStyle';
 
 const PublicButton = () => {
-  const handleBack = () => {
-    window.history.back();
-  };
-
-  return <BackButtonStyle onClick={handleBack}>뒤로가기</BackButtonStyle>;
+  return (
+    <div>
+      <PublicGlobalStyle>안녕하세요</PublicGlobalStyle>
+    </div>
+  );
 };
-
-const BackButtonStyle = styled.button`
-  background-color: rgb(0, 0, 114);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  cursor: pointer;
-  &:hover {
-    background-color: rgb(114, 0, 0);
-  }
-  &:active {
-    background-color: #ca0000;
-  }
-`;
 
 export default PublicButton;
