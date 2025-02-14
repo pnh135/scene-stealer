@@ -7,7 +7,13 @@ import MOCK_DATA from './MOCK_DATA';
 
 const MainPage = () => {
   const [testList, setTestList] = useState(MOCK_DATA);
-  const AddBookMark = (id) => {};
+  const AddBookMark = (id) => {
+    const currentBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+    if (!currentBookmarks.includes(id)) {
+      currentBookmarks.push(id);
+      localStorage.setItem('bookmarks', JSON.stringify(currentBookmarks));
+    }
+  };
   return (
     <>
       <Link to="/">
