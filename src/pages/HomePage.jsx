@@ -6,7 +6,8 @@ const HomePage = () => {
 
   return (
     <>
-      <button onClick={() => navigate('/')}>버튼</button>
+      홈페이지 영역입니다.
+      <button onClick={() => navigate('/main')}>버튼</button>
       {/* <HomePageContainer>
         <HomePageWrapper>
           <HomePageHeader>header</HomePageHeader>
