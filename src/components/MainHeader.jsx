@@ -10,8 +10,12 @@ const MainHeader = () => {
       </HeaderLogo>
       <HeaderSearch>검색창</HeaderSearch>
       <HeaderLogin>
-        <ActionButtonStyle>로그인</ActionButtonStyle>
-        <ActionButtonStyle>회원가입</ActionButtonStyle>
+        <Link to="/main/login">
+          <ActionButtonStyle>로그인</ActionButtonStyle>
+        </Link>
+        <Link to="/main/signup">
+          <ActionButtonStyle>회원가입</ActionButtonStyle>
+        </Link>
       </HeaderLogin>
     </MainPageHeader>
   );
