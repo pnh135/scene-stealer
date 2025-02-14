@@ -2,8 +2,12 @@ import styled from 'styled-components';
 import Side from '../components/SideBar';
 import MainHeader from '../components/MainHeader';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import MOCK_DATA from './MOCK_DATA';
 
 const MainPage = () => {
+  const [testList, setTestList] = useState(MOCK_DATA);
+  
   return (
     <>
       <Link to="/">
@@ -17,7 +21,22 @@ const MainPage = () => {
             <MainPageAside>
               <Side />
             </MainPageAside>
-            <MainPageMain>main</MainPageMain>
+            <MainPageMain>
+              {testList.map((li) => {
+                return (
+                  <StlyeCard key={li.id}>
+                    <img src={li.img_url} alt={li.korean_name} />
+                    <div>{li.korean_name}</div>
+                    <div>{li.description}</div>
+                    <button
+                      
+                    >
+                      북마크추가
+                    </button>
+                  </StlyeCard>
+                );
+              })}
+            </MainPageMain>
           </MainPageContent>
           <MainPageFooter>Scene Stealer</MainPageFooter>
         </MainPageWrapper>
@@ -25,7 +44,11 @@ const MainPage = () => {
     </>
   );
 };
-
+const StlyeCard = styled.div`
+  width: 180px;
+  height: 250px;
+  border: 10px solid black;
+`;
 const MainPageContainer = styled.main`
   margin: 0 auto;
   width: 100%;
