@@ -1,14 +1,15 @@
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Side from '../components/SideBar';
 import MainHeader from '../components/MainHeader';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
-  const navigate = useNavigate();
-
   return (
     <>
-      <button onClick={() => navigate('/')}>홈페이지로 이동하기</button>
+      <Link to="/">
+        <button>홈페이지로 이동하기</button>
+      </Link>
+
       <MainPageContainer>
         <MainPageWrapper>
           <MainHeader />
