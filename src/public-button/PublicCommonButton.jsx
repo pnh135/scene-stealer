@@ -4,9 +4,9 @@ const PublicCommonHandle = () => {
   return <PublicCommonStyle onClick={PublicCommonHandle}>일반버튼</PublicCommonStyle>;
 };
 
-const PublicCommonStyle = styled.button`
+export const PublicCommonStyle = styled.button`
   align-items: center;
-  word-wrap: break-word;
+  word-break: keep-all;
   padding: 10px 10px;
   font-size: 0.8rem;
   font-weight: bold;

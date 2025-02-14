@@ -6,9 +6,9 @@ const PublicBackButtonHandle = () => {
   return <PublicBackButtonStyle onClick={PublicBackButtonHandle}>뒤로가기</PublicBackButtonStyle>;
 };
 
-const PublicBackButtonStyle = styled.button`
+export const PublicBackButtonStyle = styled.button`
   align-items: center;
-  word-wrap: break-word;
+  word-break: keep-all;
   padding: 10px 10px;
   font-size: 0.8rem;
   font-weight: bold;
