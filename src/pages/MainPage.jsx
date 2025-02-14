@@ -10,7 +10,14 @@ const MainPage = () => {
       <button onClick={() => navigate('/')}>홈페이지로 이동하기</button>
       <MainPageContainer>
         <MainPageWrapper>
-          <MainPageHeader>header</MainPageHeader>
+          <MainPageHeader>
+            <div>로고</div>
+            <div>검색창</div>
+            <div>
+              <div>로그인</div>
+              <div>회원가입</div>
+            </div>
+          </MainPageHeader>
           <MainPageContent>
             <MainPageAside>
               <Side />
