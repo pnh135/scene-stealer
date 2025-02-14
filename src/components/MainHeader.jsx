@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MainHeader = () => {
   return (
     <MainPageHeader>
-      <HeaderLogo>로고</HeaderLogo>
+      <HeaderLogo>
+        <Link to="/">로고</Link> {/* to="/main" 변경해야 함 */}
+      </HeaderLogo>
       <HeaderSearch>검색창</HeaderSearch>
       <HeaderLogin>
         <HeaderLoginSignIn>로그인</HeaderLoginSignIn>
