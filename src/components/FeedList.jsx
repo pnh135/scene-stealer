@@ -4,41 +4,41 @@ import { Heart, MessageCircle, Star } from 'lucide-react';
 
 const FeedList = () => {
   return (
-    <FeedListStyledUl>
+    <FeedListWrapper>
       {MOCK_DATA.map((Movie) => (
-        <FeedListStyledLi key={Movie.id}>
-          <FeedListStyledh6>{Movie.korean_name}</FeedListStyledh6>
+        <FeedListContent key={Movie.id}>
+          <FeedListContentTitle>{Movie.korean_name}</FeedListContentTitle>
           <img src={Movie.img_url} alt="" />
-          <FeedListStyleddiv>
+          <FeedListIcon>
             <Heart />
             <MessageCircle />
             <Star />
-          </FeedListStyleddiv>
-        </FeedListStyledLi>
+          </FeedListIcon>
+        </FeedListContent>
       ))}
-    </FeedListStyledUl>
+    </FeedListWrapper>
   );
 };
 
-const FeedListStyledUl = styled.ul`
+const FeedListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 `;
 
-const FeedListStyledLi = styled.li`
+const FeedListContent = styled.div`
   list-style: none;
   width: 12rem;
   border-radius: 1rem;
   background-color: green;
 `;
 
-const FeedListStyledh6 = styled.h6`
+const FeedListContentTitle = styled.p`
   margin: 0.5rem 0;
   padding-left: 0.5rem;
 `;
 
-const FeedListStyleddiv = styled.div`
+const FeedListIcon = styled.div`
   padding-left: 0.5rem;
 `;
 
