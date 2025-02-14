@@ -10,6 +10,7 @@ const SignupInputs = () => {
         userId: '',
         userPw: '',
         userPwConfirm: '',
+        userEmail: '',
     });
 
 
@@ -19,6 +20,7 @@ const SignupInputs = () => {
         userId: '',
         userPw: '',
         userPwConfirm: '',
+        userEmail: '',
     });
 
 
@@ -26,7 +28,7 @@ const SignupInputs = () => {
     const handleSignupSubmit = (e) => {
         e.preventDefault();
 
-        const { userName, userId, userPw, userPwConfirm } = signupInput;
+        const { userName, userPw, userPwConfirm, userEmail } = signupInput;
         let errors = {};
 
         // 모든 값이 입력되었는지 확인
@@ -38,11 +40,10 @@ const SignupInputs = () => {
             errors.userPwConfirm = "비밀번호 확인을 입력해주세요.";
         }
 
-        // 아이디 유효성 (이메일 형식)
-        const idRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
-        if (!idRegex.test(userId)) {
-            errors.userId = "아이디는 이메일 형식인 영문 또는 숫자로 입력해주세요.";
+        if (!userEmail.trim()) {
+            errors.userEmail = "이메일을 입력해주세요."
         }
+
 
         // 비밀번호 유효성 (7자 이상, 영문과 숫자 포함)
         const pwRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}$/;
@@ -55,6 +56,12 @@ const SignupInputs = () => {
             errors.userPwConfirm = "비밀번호가 일치하지 않습니다.";
         }
 
+        // 이메일 확인 유효성 (이메일 형식)
+        const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(userEmail)) {
+            errors.userEmail = "이메일 형식으로 영문 또는 숫자로 입력해주세요.";
+        }
+
         setSignupErrors(errors);
     };
 
@@ -65,10 +72,11 @@ const SignupInputs = () => {
         setSignupInput((prev) => ({
             ...prev,
             [name]: value,
-        }));
+        })
+        );
     };
 
-
+    console.log(signupInput);
     return (
         <div>
             <SignupInputBox onSubmit={handleSignupSubmit}>
@@ -79,7 +87,7 @@ const SignupInputs = () => {
                     onChange={handleSignupChange}
                     placeholder="이름"
                 />
-                {signupErrors.userName && <ErrorMessage>{signupErrors.userName}</ErrorMessage>}
+                {/* {signupErrors.userName && <ErrorMessage>{signupErrors.userName}</ErrorMessage>} */}
                 <SignupInput
                     type="text"
                     name="userId"
@@ -87,8 +95,8 @@ const SignupInputs = () => {
                     onChange={handleSignupChange}
                     placeholder="아이디"
                 />
-                {signupErrors.userId && <ErrorMessage>{signupErrors.userId}</ErrorMessage>}
-                <SignupInputs
+                {/* {signupErrors.userId && <ErrorMessage>{signupErrors.userId}</ErrorMessage>} */}
+                <SignupInput
                     type="password"
                     name="userPw"
                     value={signupInput.userPw}
@@ -96,7 +104,7 @@ const SignupInputs = () => {
                     placeholder="비밀번호"
                 />
                 {signupErrors.userPw && <ErrorMessage>{signupErrors.userPw}</ErrorMessage>}
-                <SignupInputs
+                <SignupInput
                     type="password"
                     name="userPwConfirm"
                     value={signupInput.userPwConfirm}

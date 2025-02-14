@@ -1,4 +1,3 @@
-import React from "react";
 import LoginInputs from "../components/inputs/LoginInputs";
 import SignupInputs from "../components/inputs/SignupInputs";
 
