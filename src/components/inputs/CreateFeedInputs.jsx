@@ -9,7 +9,7 @@ const CreateFeedInputs = () => {
         tagInput: "",
     });
 
-    const [errorMessage, setErrorMessage] = useState(""); // 🔹 에러 메시지 상태 추가
+    const [errorMessage, setErrorMessage] = useState(""); // 에러 메시지 상태 추가
 
     const handleCreateFeedChange = (e) => {
         const { name, value } = e.target;
@@ -57,8 +57,8 @@ const CreateFeedInputs = () => {
 
     return (
         <div>
-            <form action="">
-                <input
+            <CreatInputsForm action="">
+                <AllInput
                     type="text"
                     name="feedTitle"
                     value={createFeedInput.feedTitle}
@@ -66,7 +66,7 @@ const CreateFeedInputs = () => {
                     placeholder="제목"
                 />
 
-                <input
+                <AllInput
                     type="text"
                     name="contentTitle"
                     value={createFeedInput.contentTitle}
@@ -76,7 +76,7 @@ const CreateFeedInputs = () => {
 
                 {/* 태그 입력 인풋 */}
                 <TagInputContainer>
-                    <TagInput
+                    <HashtagInput
                         type="text"
                         value={createFeedInput.tagInput}
                         onChange={(e) => setCreateFeedInput(prev => ({
@@ -84,7 +84,7 @@ const CreateFeedInputs = () => {
                             tagInput: e.target.value,
                         }))}
                         onKeyDown={handleKeyDown}
-                        placeholder="해시태그 입력 (최대 4개)"
+                        placeholder="해시태그 엔터로 입력 (최대 4개)"
                     />
                 </TagInputContainer>
 
@@ -100,28 +100,48 @@ const CreateFeedInputs = () => {
                         </TagItem>
                     ))}
                 </TagListContainer>
-            </form>
+            </CreatInputsForm>
         </div>
     );
 };
 
-/* 입력 필드 스타일 */
+
+const CreatInputsForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    gap: 1rem;
+    
+`;
+
 const TagInputContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: #f0f0f0;
   padding: 0.4rem 1rem;
   border-radius: 0.7rem;
+  padding: 12px 16px;
+    border-radius: 11px;
+    appearance: none;
+    border-style: solid;
+    border-width: 2px;
+
+    &::placeholder {
+        color: #aaa;
+    }
+
+    &:has(input:focus) {
+    border-color: #7fc1ff;
+  }
 `;
 
-/* 에러 메시지 스타일 */
+
 const ErrorText = styled.p`
   color: red;
   font-size: 14px;
   margin: 5px 0; /* 입력창과 태그 리스트 사이에 여백 */
 `;
 
-/* 태그 리스트 스타일 */
 const TagListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -152,13 +172,32 @@ const TagItem = styled.div`
   }
 `;
 
-const TagInput = styled.input`
+const HashtagInput = styled.input`
   flex-grow: 1;
   padding: 0.5em;
   background-color: #f0f0f0;
   border: none;
-  outline: none;
-  font-family: "Noto Sans KR", sans-serif;
+  outline: 2px;
+  
+`;
+
+const AllInput = styled.input`
+    background-color: #f0f0f0;
+    width: 10rem;
+    padding: 12px 16px;
+    border-radius: 11px;
+    appearance: none;
+    border-style: solid;
+    border-width: 2px;
+
+    &::placeholder {
+        color: #aaa;
+    }
+
+    &:focus {
+        border-color: #7fc1ff;
+        outline: none;
+    }
 `;
 
 export default CreateFeedInputs;
