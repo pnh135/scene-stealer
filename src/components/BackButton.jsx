@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const PublicBackButtonHandle = () => {
+const BackButton = () => {
   window.history.back();
 
-  return <PublicBackButtonStyle onClick={PublicBackButtonHandle}>뒤로가기</PublicBackButtonStyle>;
+  return <PublicBackButtonStyle onClick={BackButton}>뒤로가기</PublicBackButtonStyle>;
 };
 
 export const PublicBackButtonStyle = styled.button`
@@ -27,4 +27,4 @@ export const PublicBackButtonStyle = styled.button`
   }
 `;
 
-export default PublicBackButtonHandle;
+export default BackButton;
