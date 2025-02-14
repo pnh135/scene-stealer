@@ -15,6 +15,7 @@ const Side = () => {
     </GrandfatherStyledDiv>
   );
 };
+
 const GrandfatherStyledDiv = styled.div`
   background-color: #d6dad5;
   display: flex;

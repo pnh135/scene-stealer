@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import Side from './Side';
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -12,7 +13,9 @@ const MainPage = () => {
         <HomePageWrapper>
           <HomePageHeader>header</HomePageHeader>
           <HomePageContent>
-            <HomePageAside>side</HomePageAside>
+            <HomePageAside>
+              <Side />
+            </HomePageAside>
             <HomePageMain>main</HomePageMain>
           </HomePageContent>
           <HomePageFooter>footer</HomePageFooter>
