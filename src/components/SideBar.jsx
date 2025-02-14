@@ -5,12 +5,12 @@ import { CopyPlus, Bookmark, BellRing, Settings } from 'lucide-react';
 const SideBar = () => {
   return (
     <SideBarWrapper>
-      <Link to="/add-feed">
+      <Link to="/main/add-feed">
         <SideBarButton>
           <CopyPlus />
         </SideBarButton>
       </Link>
-      <Link to="/bookmarks">
+      <Link to="/main/bookmarks">
         <SideBarButton>
           <Bookmark />
         </SideBarButton>
