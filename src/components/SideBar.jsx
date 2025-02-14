@@ -10,7 +10,7 @@ const SideBar = () => {
           <CopyPlus />
         </SideBarButton>
       </Link>
-      <Link to="/main/bookmarks">
+      <Link to="/main/bookmark">
         <SideBarButton>
           <Bookmark />
         </SideBarButton>
