@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ActionButton from './ActionButton';
 
 const MainHeader = () => {
   return (
@@ -9,7 +10,9 @@ const MainHeader = () => {
       </HeaderLogo>
       <HeaderSearch>검색창</HeaderSearch>
       <HeaderLogin>
-        <HeaderLoginSignIn>로그인</HeaderLoginSignIn>
+        <HeaderLoginSignIn>
+          <ActionButton>로그인</ActionButton>
+        </HeaderLoginSignIn>
         <HeaderLoginSignUp>회원가입</HeaderLoginSignUp>
       </HeaderLogin>
     </MainPageHeader>
