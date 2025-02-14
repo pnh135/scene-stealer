@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Side from '../components/SideBar';
+import MainHeader from '../components/MainHeader';
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -10,14 +11,7 @@ const MainPage = () => {
       <button onClick={() => navigate('/')}>홈페이지로 이동하기</button>
       <MainPageContainer>
         <MainPageWrapper>
-          <MainPageHeader>
-            <div>로고</div>
-            <div>검색창</div>
-            <div>
-              <div>로그인</div>
-              <div>회원가입</div>
-            </div>
-          </MainPageHeader>
+          <MainHeader />
           <MainPageContent>
             <MainPageAside>
               <Side />
@@ -40,10 +34,6 @@ const MainPageContainer = styled.main`
 const MainPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const MainPageHeader = styled.header`
-  background-color: lightcoral;
 `;
 
 const MainPageContent = styled.div`
