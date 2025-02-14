@@ -7,6 +7,11 @@ const BookmarksPage = () => {
     const savedBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
     setBookmarks(savedBookmarks);
   }, []);
+  const RemoveBookMark = (id) => {
+    const updatedBookmarks = bookmarks.filter((bo) => bo !== id);
+    setBookmarks(updatedBookmarks);
+    localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
+  };
   return (
     <div>
       북마크페이지입니다
@@ -18,6 +23,13 @@ const BookmarksPage = () => {
               <img src={item.img_url} alt={item.korean_name} />
               <div>{item.korean_name}</div>
               <div>{item.description}</div>
+              <button
+                onClick={() => {
+                  RemoveBookMark(item.id);
+                }}
+              >
+                북마크삭제
+              </button>
             </div>
           ) : null;
         })
