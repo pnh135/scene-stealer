@@ -8,13 +8,13 @@ const FeedList = () => {
     <FeedListStyledUl>
       {MOCK_DATA.map((Movie)=>(
         <FeedListStyledLi key={Movie.id}>
-          <h6>{Movie.korean_name}</h6>
+          <FeedListStyledh6>{Movie.korean_name}</FeedListStyledh6>
           <img src={Movie.img_url} alt="" />
-          <div>
+          <FeedListStyleddiv>
             <Heart />
             <MessageCircle />
             <Star />
-          </div>
+          </FeedListStyleddiv>
         </FeedListStyledLi>
       ))}
     </FeedListStyledUl>
@@ -24,10 +24,19 @@ const FeedList = () => {
 const FeedListStyledUl = styled.ul`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
 `
 const FeedListStyledLi = styled.li`
-  ::marker {
-  }
-  `
-
+  list-style: none;
+  width: 12rem;
+  border-radius: 1rem;
+  background-color: green;
+`
+const FeedListStyledh6 = styled.h6`
+  margin: 0.5rem 0;
+  padding-left: 0.5rem;
+`
+const FeedListStyleddiv = styled.div`
+  padding-left: 0.5rem;
+`
 export default FeedList
