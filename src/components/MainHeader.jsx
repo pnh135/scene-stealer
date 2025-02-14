@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import ActionButton from './ActionButton';
+import { ActionButtonStyle } from './ActionButton';
 
 const MainHeader = () => {
   return (
@@ -10,10 +10,8 @@ const MainHeader = () => {
       </HeaderLogo>
       <HeaderSearch>검색창</HeaderSearch>
       <HeaderLogin>
-        <HeaderLoginSignIn>
-          <ActionButton>로그인</ActionButton>
-        </HeaderLoginSignIn>
-        <HeaderLoginSignUp>회원가입</HeaderLoginSignUp>
+        <ActionButtonStyle>로그인</ActionButtonStyle>
+        <ActionButtonStyle>회원가입</ActionButtonStyle>
       </HeaderLogin>
     </MainPageHeader>
   );
@@ -25,33 +23,25 @@ const MainPageHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 10px;
+  padding: 20px;
 `;
 
 const HeaderLogo = styled.div`
   background-color: red;
-  flex: 1.5;
+  flex: 1;
 `;
 
 const HeaderSearch = styled.div`
   background-color: lightcyan;
-  flex: 6;
+  flex: 9;
 `;
 
 const HeaderLogin = styled.div`
   background-color: lightgoldenrodyellow;
-  flex: 1.5;
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-`;
-
-const HeaderLoginSignIn = styled.div`
-  background-color: lightgrey;
-`;
-
-const HeaderLoginSignUp = styled.div`
-  background-color: lightgreen;
+  justify-content: space-between;
 `;
 
 export default MainHeader;
