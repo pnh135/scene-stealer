@@ -1,11 +1,13 @@
 import React from "react";
-import PublicInputs from "../components/PublicInputs";
+import LoginInputs from "../components/inputs/LoginInputs";
+import SignupInputs from "../components/inputs/SignupInputs";
 
 const Home = () => {
   return (
     <>
       <div>
-        <PublicInputs />
+        <LoginInputs />
+        <SignupInputs />
       </div>
     </>
   );
