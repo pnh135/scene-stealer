@@ -1,17 +1,26 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { CopyPlus, Bookmark, BellRing, Settings } from 'lucide-react';
 
 const SideBar = () => {
   return (
     <SideBarWrapper>
       <Link to="/add-feed">
-        <SideBarButton>피드추가</SideBarButton>
+        <SideBarButton>
+          <CopyPlus />
+        </SideBarButton>
       </Link>
       <Link to="/bookmarks">
-        <SideBarButton>북마크</SideBarButton>
+        <SideBarButton>
+          <Bookmark />
+        </SideBarButton>
       </Link>
-      <SideBarButton>알림</SideBarButton>
-      <SideBarButton>설정</SideBarButton>
+      <SideBarButton>
+        <BellRing />
+      </SideBarButton>
+      <SideBarButton>
+        <Settings />
+      </SideBarButton>
     </SideBarWrapper>
   );
 };
