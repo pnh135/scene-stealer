@@ -7,7 +7,6 @@ const MainPage = () => {
 
   return (
     <>
-      메인 페이지 영역입니다.
       <button onClick={() => navigate('/')}>홈페이지로 이동하기</button>
       <MainPageContainer>
         <MainPageWrapper>
