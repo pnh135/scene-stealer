@@ -7,7 +7,7 @@ import MOCK_DATA from './MOCK_DATA';
 
 const MainPage = () => {
   const [testList, setTestList] = useState(MOCK_DATA);
-  
+  const AddBookMark = (id) => {};
   return (
     <>
       <Link to="/">
@@ -29,7 +29,9 @@ const MainPage = () => {
                     <div>{li.korean_name}</div>
                     <div>{li.description}</div>
                     <button
-                      
+                      onClick={() => {
+                        AddBookMark(li.id);
+                      }}
                     >
                       북마크추가
                     </button>
