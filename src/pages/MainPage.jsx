@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import SideBar from '../components/SideBar';
 import MainHeader from '../components/MainHeader';
 import FeedList from '../components/FeedList';
+import MainFooter from '../components/MainFooter';
 
 const MainPage = () => {
   return (
@@ -16,7 +17,7 @@ const MainPage = () => {
             <FeedList />
           </MainPageMain>
         </MainPageContent>
-        <MainPageFooter>Scene Stealer</MainPageFooter>
+        <MainFooter />
       </MainPageWrapper>
     </MainPageContainer>
   );
@@ -34,7 +35,7 @@ const MainPageWrapper = styled.div`
   flex-direction: column;
 `;
 
-const MainPageContent = styled.div`
+export const MainPageContent = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 20px;
@@ -46,12 +47,6 @@ const MainPageAside = styled.aside`
 
 const MainPageMain = styled.div`
   flex: 1;
-`;
-
-const MainPageFooter = styled.footer`
-  background-color: #333;
-  color: white;
-  padding: 30px;
 `;
 
 export default MainPage;
