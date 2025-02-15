@@ -13,8 +13,8 @@ const Modal = ({ isOpen, handleModal }) => {
 export default Modal;
 
 const StdModal = styled.div`
-  width: 100px;
-  height: 100px;
+  /* width: 100px;
+  height: 100px; */
   display: ${(props) => (props.$isOpen ? 'block' : 'none')};
   background-color: gray;
 `;
