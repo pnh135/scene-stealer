@@ -41,12 +41,10 @@ const MainPageContent = styled.div`
 `;
 
 const MainPageAside = styled.aside`
-  /* background-color: yellowgreen; */
   border-right: 1px solid #bdbdbd;
 `;
 
 const MainPageMain = styled.div`
-  /* background-color: orange; */
   flex: 1;
 `;
 

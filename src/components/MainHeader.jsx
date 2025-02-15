@@ -38,7 +38,6 @@ const MainHeader = () => {
 };
 
 const MainPageHeader = styled.header`
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;

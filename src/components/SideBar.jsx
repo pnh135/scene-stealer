@@ -37,8 +37,6 @@ const SideBarWrapper = styled.div`
 `;
 
 const SideBarButton = styled.button`
-  /* width: 50px;
-  height: 50px; */
   color: #333;
 `;
 
