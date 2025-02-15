@@ -115,16 +115,16 @@ const CreatInputsForm = styled.form`
 `;
 
 const TagInputContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #f0f0f0;
-  padding: 0.4rem 1rem;
-  border-radius: 0.7rem;
-  padding: 12px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f0f0f0;
+    border-radius: 0.7rem;
+    padding: 12px;
     border-radius: 11px;
     appearance: none;
     border-style: solid;
     border-width: 2px;
+    width: 15rem;
 
     &::placeholder {
         color: #aaa;
@@ -173,12 +173,11 @@ const TagItem = styled.div`
 `;
 
 const HashtagInput = styled.input`
-  flex-grow: 1;
-  padding: 0.5em;
-  background-color: #f0f0f0;
-  border: none;
-  outline: 2px;
-  
+    flex-grow: 1;
+    background-color: #f0f0f0;
+    border: none;
+    outline: 2px;
+    
 `;
 
 const AllInput = styled.input`
