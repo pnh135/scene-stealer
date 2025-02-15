@@ -41,11 +41,11 @@ export const MainPageContent = styled.div`
   padding: 20px;
 `;
 
-const MainPageAside = styled.aside`
+export const MainPageAside = styled.aside`
   border-right: 1px solid #bdbdbd;
 `;
 
-const MainPageMain = styled.div`
+export const MainPageMain = styled.div`
   flex: 1;
 `;
 
