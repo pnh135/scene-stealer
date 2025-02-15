@@ -1,30 +1,24 @@
 import styled from 'styled-components';
 import SideBar from '../components/SideBar';
 import MainHeader from '../components/MainHeader';
-import { Link } from 'react-router-dom';
 import FeedList from '../components/FeedList';
 
 const MainPage = () => {
   return (
-    <>
-      <Link to="/">
-        <button>홈페이지로 이동하기</button>
-      </Link>
-      <MainPageContainer>
-        <MainPageWrapper>
-          <MainHeader />
-          <MainPageContent>
-            <MainPageAside>
-              <SideBar />
-            </MainPageAside>
-            <MainPageMain>
-              <FeedList />
-            </MainPageMain>
-          </MainPageContent>
-          <MainPageFooter>Scene Stealer</MainPageFooter>
-        </MainPageWrapper>
-      </MainPageContainer>
-    </>
+    <MainPageContainer>
+      <MainPageWrapper>
+        <MainHeader />
+        <MainPageContent>
+          <MainPageAside>
+            <SideBar />
+          </MainPageAside>
+          <MainPageMain>
+            <FeedList />
+          </MainPageMain>
+        </MainPageContent>
+        <MainPageFooter>Scene Stealer</MainPageFooter>
+      </MainPageWrapper>
+    </MainPageContainer>
   );
 };
 
