@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import MOCK_DATA from '../data/MOCK_DATA';
-import { Bookmark } from 'lucide-react';
+import { Bookmark, Heart } from 'lucide-react';
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -22,6 +22,9 @@ const DetailPage = () => {
             />
             <StdBookmark>
               <Bookmark />
+            </StdBookmark>
+            <StdBookmark>
+              <Heart />
             </StdBookmark>
           </StdFeedHeader>
           <div>{movie.korean_name}</div>
@@ -95,7 +98,7 @@ const StdFeedHeader = styled.div`
   width: 100%;
   max-height: min-content;
   flex: 3 0 0;
-  gap: 20%;
+  gap: 10%;
   background-color: palegreen;
   border-bottom: dashed 2px;
 `;
