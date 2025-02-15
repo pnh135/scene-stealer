@@ -55,18 +55,14 @@ const SideBar = () => {
 
 export default SideBar;
 
-const SideBarWrapper = styled.div`
-  height: calc(100vh - 120px);
-  position: fixed;
-  top: 120px;
+export const SideBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 50px;
-  background-color: white;
-  border-right: 1px solid #bdbdbd;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
+  position: fixed;
   z-index: 100;
 `;
 

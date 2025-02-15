@@ -10,7 +10,7 @@ import {
   FeedListWrapper
 } from '../components/FeedList';
 import MainHeader from '../components/MainHeader';
-import { MainPageAside, MainPageContent, MainPageMain } from './MainPage';
+import { MainPageContent, MainPageMain } from './MainPage';
 import MainFooter from '../components/MainFooter';
 import SideBar from '../components/SideBar';
 import ActionButton from '../components/ActionButton';
@@ -34,9 +34,7 @@ const BookMarkPage = () => {
     <div>
       <MainHeader />
       <MainPageContent>
-        <MainPageAside>
-          <SideBar />
-        </MainPageAside>
+        <SideBar />
         <MainPageMain>
           <ActionButton />
           <FeedListWrapper>
