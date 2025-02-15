@@ -47,6 +47,7 @@ const MainPageHeader = styled.header`
 `;
 
 const HeaderLogo = styled.div``;
+// 로고 전달 받으면 수정할 수도 있을 것 같아서 남겨둡니다.
 
 const HeaderSearch = styled.div`
   background-color: white;

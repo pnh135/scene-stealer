@@ -75,7 +75,6 @@ export const FeedListIcon = styled.div`
   border-top: 1px solid #bdbdbd;
   border-bottom: 1px solid #bdbdbd;
   color: #333;
-  /* background-color: yellowgreen; */
 `;
 
 export default FeedList;
