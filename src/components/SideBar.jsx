@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { CopyPlus, Bookmark, BellRing, Settings } from 'lucide-react';
+import AlertModal from './Modals/AlertModal';
 
 const SideBar = () => {
   return (
@@ -15,7 +16,7 @@ const SideBar = () => {
           <Bookmark />
         </SideBarButton>
       </Link>
-      <SideBarButton>
+      <SideBarButton onClick={hadleModal}>
         <BellRing />
       </SideBarButton>
       <SideBarButton>
