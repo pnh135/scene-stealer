@@ -30,12 +30,12 @@ const SideBar = () => {
   return (
     <>
       <SideBarWrapper>
-        <Link to="main/add-feed">
+        <Link to="/main/add-feed">
           <SideBarButton>
             <CopyPlus />
           </SideBarButton>
         </Link>
-        <Link to="main/bookmarks">
+        <Link to="/main/bookmark">
           <SideBarButton>
             <Bookmark />
           </SideBarButton>
