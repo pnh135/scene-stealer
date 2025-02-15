@@ -8,19 +8,18 @@ const MainHeader = () => {
     <MainPageHeader>
       <HeaderLogo>
         <Link to="/">
-          {/* <img
+          <img
             src="https://velog.velcdn.com/images/_young/post/dc9091d0-65fa-411a-94d1-3471b80eec5b/image.png"
             alt="logo"
             style={{
-              maxWidth: '100px',
+              maxWidth: '120px',
               height: 'auto',
               objectFit: 'contain',
               display: 'block'
             }}
-          /> */}
+          />
         </Link>
         {/* to="/main" 변경해야 함 */}
-        Scene Stealer
       </HeaderLogo>
       <HeaderSearch>
         <Search />
@@ -41,25 +40,22 @@ const MainHeader = () => {
 const MainPageHeader = styled.header`
   background-color: white;
   display: flex;
-  gap: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 20px;
   border-bottom: 1px solid #bdbdbd;
 `;
 
-const HeaderLogo = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-align: left;
-`;
+const HeaderLogo = styled.div``;
 
 const HeaderSearch = styled.div`
   background-color: white;
+  height: 50px;
   display: flex;
   align-items: center;
   gap: 1rem;
-  flex: 6;
+  flex: 1;
   border-radius: 2rem;
   border: 1px solid #bdbdbd;
   padding: 0.5rem 1rem;
@@ -67,12 +63,11 @@ const HeaderSearch = styled.div`
 `;
 
 const HeaderLogin = styled.div`
-  background-color: lightgoldenrodyellow;
-  /* flex: 1; */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 1rem;
+  padding: 0 1rem;
 `;
 
 export default MainHeader;
