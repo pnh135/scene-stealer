@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Heart, MessageCircle, Star } from 'lucide-react';
 
 const FeedList = () => {
-  const AddBookMark = (id) => {
+  const addBookMark = (id) => {
     const currentBookmarks = JSON.parse(localStorage.getItem('bookmark')) || [];
     if (!currentBookmarks.includes(id)) {
       currentBookmarks.push(id);
@@ -22,7 +22,7 @@ const FeedList = () => {
             <MessageCircle />
             <Star
               onClick={() => {
-                AddBookMark(Movie.id);
+                addBookMark(Movie.id);
               }}
             />
           </FeedListIcon>
