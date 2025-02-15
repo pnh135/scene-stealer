@@ -37,12 +37,15 @@ const MainHeader = () => {
 };
 
 const MainPageHeader = styled.header`
+  position: fixed;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 20px;
   border-bottom: 1px solid #bdbdbd;
+  background-color: white;
 `;
 
 const HeaderLogo = styled.div``;
