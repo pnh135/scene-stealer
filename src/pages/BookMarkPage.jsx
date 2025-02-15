@@ -10,10 +10,10 @@ import {
   FeedListWrapper
 } from '../components/FeedList';
 import MainHeader from '../components/MainHeader';
-import { MainPageContent, MainPageMain } from './MainPage';
+import { MainPageContent, MainPageMain, MainPageSideBar } from './MainPage';
 import MainFooter from '../components/MainFooter';
-import SideBar from '../components/SideBar';
 import ActionButton from '../components/ActionButton';
+import SideBar from '../components/SideBar';
 
 const BookMarkPage = () => {
   const [bookMarks, setbookMarks] = useState([]);
@@ -34,7 +34,9 @@ const BookMarkPage = () => {
     <div>
       <MainHeader />
       <MainPageContent>
-        <SideBar />
+        <MainPageSideBar>
+          <SideBar />
+        </MainPageSideBar>
         <MainPageMain>
           <ActionButton />
           <FeedListWrapper>

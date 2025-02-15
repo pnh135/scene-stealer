@@ -35,7 +35,7 @@ export const MainPageContent = styled.div`
   justify-content: flex-start;
 `;
 
-const MainPageSideBar = styled(SideBarWrapper)`
+export const MainPageSideBar = styled(SideBarWrapper)`
   border-right: 1px solid #bdbdbd;
   padding: 2rem;
 `;
