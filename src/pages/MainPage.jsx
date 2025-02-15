@@ -25,6 +25,7 @@ const MainPage = () => {
 const MainPageContainer = styled.main`
   margin: 0 auto;
   width: 100%;
+  height: 100vh;
   text-align: center;
 `;
 
@@ -47,7 +48,6 @@ const MainPageAside = styled.aside`
 const MainPageMain = styled.div`
   background-color: orange;
   flex: 10;
-  /* height: 100vh; */
 `;
 
 const MainPageFooter = styled.footer`
