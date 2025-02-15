@@ -1,6 +1,6 @@
 import MOCK_DATA from '../data/MOCK_DATA';
 import styled from 'styled-components';
-import { Heart, MessageCircle, Star } from 'lucide-react';
+import { Heart, MessageCircle, Bookmark } from 'lucide-react';
 
 const FeedList = () => {
   const addBookMark = (id) => {
@@ -20,11 +20,11 @@ const FeedList = () => {
       {MOCK_DATA.map((Movie) => (
         <FeedListContent key={Movie.id}>
           <FeedListContentTitle>{Movie.korean_name}</FeedListContentTitle>
-          <img src={Movie.img_url} alt="" />
+          <FeedListContentImg src={Movie.img_url} alt="" />
           <FeedListIcon>
             <Heart />
             <MessageCircle />
-            <Star
+            <Bookmark
               onClick={() => {
                 addBookMark(Movie.id);
               }}
@@ -38,24 +38,44 @@ const FeedList = () => {
 
 export const FeedListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
+  padding: 20px;
 `;
 
 export const FeedListContent = styled.div`
-  list-style: none;
-  width: 12rem;
+  display: flex;
+  flex-direction: column;
   border-radius: 1rem;
-  background-color: green;
+  background-color: #f4f4f4;
+  padding: 1.2rem;
 `;
 
 export const FeedListContentTitle = styled.p`
-  margin: 0.5rem 0;
-  padding-left: 0.5rem;
+  text-align: left;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  word-break: keep-all;
+  border-bottom: 1px solid #bdbdbd;
+`;
+
+export const FeedListContentImg = styled.img`
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0;
 `;
 
 export const FeedListIcon = styled.div`
-  padding-left: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid #bdbdbd;
+  border-bottom: 1px solid #bdbdbd;
+  color: #333;
+  /* background-color: yellowgreen; */
 `;
 
 export default FeedList;
