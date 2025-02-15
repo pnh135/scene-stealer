@@ -56,7 +56,7 @@ const SideBar = () => {
 export default SideBar;
 
 const SideBarWrapper = styled.div`
-  height: calc(100vh - 100px);
+  height: calc(100vh - 120px);
   position: fixed;
   top: 120px;
   display: flex;
@@ -73,3 +73,5 @@ const SideBarWrapper = styled.div`
 const SideBarButton = styled.button`
   color: #333;
 `;
+
+// 기능 구현 끝난 후, SideBar 높이값 수정해야 함
