@@ -17,17 +17,18 @@ const FeedList = () => {
 
   return (
     <FeedListWrapper>
-      {MOCK_DATA.map((Movie) => (
-        <FeedListContent key={Movie.id}>
-          <FeedListContentTitle>{Movie.korean_name}</FeedListContentTitle>
-          <FeedListContentImg src={Movie.img_url} alt="" />
+      {MOCK_DATA.map((card) => (
+        <FeedListContent key={card.id}>
+          <FeedListContentTitle>{card.korean_name}</FeedListContentTitle>
+          <FeedListContentImg src={card.img_url} alt={card.korean_name} />
           <FeedListIcon>
-            <Heart />
-            <MessageCircle />
+            <Heart style={{ cursor: 'pointer' }} />
+            <MessageCircle style={{ cursor: 'pointer' }} />
             <Bookmark
               onClick={() => {
-                addBookMark(Movie.id);
+                addBookMark(card.id);
               }}
+              style={{ cursor: 'pointer' }}
             />
           </FeedListIcon>
         </FeedListContent>

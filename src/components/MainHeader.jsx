@@ -19,7 +19,6 @@ const MainHeader = () => {
             }}
           />
         </Link>
-        {/* to="/main" 변경해야 함 */}
       </HeaderLogo>
       <HeaderSearch>
         <Search />
