@@ -24,8 +24,9 @@ const DetailPage = () => {
               <Bookmark />
             </StdBookmark>
           </StdFeedHeader>
+          <div>{movie.korean_name}</div>
           <div className="hash-tag">
-            <span fontSize={'1em'}>#해시태그</span>
+            <span>#해시태그</span>
           </div>
           <div className="star">★★★</div>
           <ul className="comment-list">
@@ -58,8 +59,9 @@ const StdFeedDetail = styled.div`
   min-height: 50%;
   position: relative;
   background-color: orange;
-  padding: 5%;
+  margin: 5%;
   border-radius: 10%;
+  overflow: hidden;
 `;
 
 const StdProfile = styled.img`
@@ -80,6 +82,7 @@ const StdImageContainer = styled.div`
   min-height: 50%;
   background-color: green;
   border-radius: 10%;
+  overflow: hidden;
 `;
 
 const StdImage = styled.img`
@@ -89,7 +92,10 @@ const StdImage = styled.img`
 const StdFeedHeader = styled.div`
   display: flex;
   justify-content: center;
-  max-height: fit-content;
-  flex: 3 1 0;
+  width: 100%;
+  max-height: min-content;
+  flex: 3 0 0;
   gap: 20%;
+  background-color: palegreen;
+  border-bottom: dashed 2px;
 `;
