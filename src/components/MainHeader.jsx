@@ -47,6 +47,7 @@ const MainPageHeader = styled.header`
   padding: 20px;
   border-bottom: 1px solid #bdbdbd;
   background-color: white;
+  z-index: 100;
 `;
 
 const HeaderLogo = styled.div``;
