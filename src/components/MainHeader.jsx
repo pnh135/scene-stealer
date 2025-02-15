@@ -42,10 +42,11 @@ const HeaderSearch = styled.div`
 
 const HeaderLogin = styled.div`
   background-color: lightgoldenrodyellow;
-  flex: 1;
+  flex: 0.5;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
 `;
 
 export default MainHeader;
