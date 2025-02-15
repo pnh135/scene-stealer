@@ -13,6 +13,7 @@ import MainHeader from '../components/MainHeader';
 import { MainPageAside, MainPageContent, MainPageMain } from './MainPage';
 import MainFooter from '../components/MainFooter';
 import SideBar from '../components/SideBar';
+import ActionButton from '../components/ActionButton';
 
 const BookMarkPage = () => {
   const [bookMarks, setbookMarks] = useState([]);
@@ -37,6 +38,7 @@ const BookMarkPage = () => {
           <SideBar />
         </MainPageAside>
         <MainPageMain>
+          <ActionButton />
           <FeedListWrapper>
             {bookMarks.length > 0 ? (
               bookMarks.map((id) => {
