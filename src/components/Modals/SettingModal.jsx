@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-const SettingModal = ({ isOpen, handleModal }) => {
+const SettingModal = ({ isOpen }) => {
   return (
     <StdModal $isOpen={isOpen}>
-      <div>
-        <button onClick={handleModal}>x</button>알림
-      </div>
+      <div>세팅</div>
       <div>내용22</div>
     </StdModal>
   );
@@ -15,9 +13,9 @@ export default SettingModal;
 
 const StdModal = styled.div`
   display: ${(props) => (props.$isOpen ? 'block' : 'none')};
-  width: 100px;
+  flex: 1 1 auto;
   height: 80%;
-  background-color: gray;
-  position: fixed;
-  left: auto;
+  background-color: #caefff;
+  position: relative;
+  transform: translate(100%, -100%);
 `;

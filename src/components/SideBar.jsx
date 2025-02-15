@@ -6,10 +6,27 @@ import AlertModal from '../components/Modals/AlertModal';
 import SettingModal from './Modals/SettingModal';
 
 const SideBar = () => {
+  // 세팅 열고닫기에 필요한 useState
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // 알림 열고닫기에 필요한 useState
+  const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
+
+  // 세팅 모달 열고닫기
   const handleModal = () => {
+    if (isAlertModalOpen === true) {
+      setIsAlertModalOpen(false);
+    }
     setIsModalOpen(!isModalOpen);
   };
+
+  // 알림 모달 열고닫기
+  const handleAlertModal = () => {
+    if (isModalOpen === true) {
+      setIsModalOpen(false);
+    }
+    setIsAlertModalOpen(!isAlertModalOpen);
+  };
+
   return (
     <>
       <SideBarWrapper>
@@ -23,14 +40,14 @@ const SideBar = () => {
             <Bookmark />
           </SideBarButton>
         </Link>
-        <SideBarButton onClick={handleModal}>
+        <SideBarButton onClick={handleAlertModal}>
           <BellRing />
         </SideBarButton>
         <SideBarButton onClick={handleModal}>
           <Settings />
         </SideBarButton>
       </SideBarWrapper>
-      <AlertModal isOpen={isModalOpen} handleModal={handleModal} />
+      <AlertModal isAlertModalOpen={isAlertModalOpen} handleAlertModal={handleAlertModal} />
       <SettingModal isOpen={isModalOpen} handleModal={handleModal} />
     </>
   );

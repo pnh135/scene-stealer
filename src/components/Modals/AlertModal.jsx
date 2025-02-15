@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-const AlertModal = ({ isOpen, handleModal }) => {
+const AlertModal = ({ isAlertModalOpen }) => {
   return (
-    <StdModal $isOpen={isOpen}>
-      <div>
-        <button onClick={handleModal}>x</button>알림
-      </div>
+    <StdModal $isAlertModalOpen={isAlertModalOpen}>
+      <div>알림</div>
       <div>내용11</div>
     </StdModal>
   );
@@ -14,10 +12,10 @@ const AlertModal = ({ isOpen, handleModal }) => {
 export default AlertModal;
 
 const StdModal = styled.div`
-  display: ${(props) => (props.$isOpen ? 'block' : 'none')};
-  width: 100px;
+  display: ${(props) => (props.$isAlertModalOpen ? 'block' : 'none')};
+  flex: 1 1 auto;
   height: 80%;
-  background-color: gray;
-  position: fixed;
-  left: auto;
+  background-color: #c2fff8;
+  position: relative;
+  transform: translate(100%, -100%);
 `;
