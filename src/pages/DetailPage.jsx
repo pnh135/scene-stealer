@@ -1,4 +1,4 @@
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import MOCK_DATA from '../data/MOCK_DATA';
 
@@ -9,10 +9,10 @@ const DetailPage = () => {
 
   return (
     <StdFeedContainer className="feed-container">
-      <div>
-        <StdImage src={movie.img_url} />
-      </div>
-      <div className="detail">
+      <StdImageContainer>
+        <img src={movie.img_url} />
+      </StdImageContainer>
+      <StdFeedDetail className="detail">
         <div className="detail-head">
           <StdProfile className="icon" src="https://i.pinimg.com/736x/a8/7e/e9/a87ee992d0b9e196edf8211bbc799521.jpg" />
           <div className="bookmark-icon" />
@@ -23,7 +23,7 @@ const DetailPage = () => {
         <div className="star">★★★</div>
         <div className="comment-list">user: 퍼가요~</div>
         <input placeholder="add a comment" />
-      </div>
+      </StdFeedDetail>
     </StdFeedContainer>
   );
 };
@@ -31,7 +31,17 @@ const DetailPage = () => {
 export default DetailPage;
 
 const StdFeedContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  max-width: 80%;
+  justify-content: center;
+  flex: 1 1 0;
   background-color: yellow;
+`;
+
+const StdFeedDetail = styled.div`
+  min-width: 50%;
+  background-color: orange;
 `;
 
 const StdProfile = styled.img`
@@ -39,6 +49,8 @@ const StdProfile = styled.img`
   background-image: cover;
 `;
 
-const StdImage = styled.img`
-  width: 50%;
+const StdImageContainer = styled.div`
+  min-width: 50%;
+  justify-items: center;
+  background-color: green;
 `;
