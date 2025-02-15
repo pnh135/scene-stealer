@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const SearchBarInput = () => {
     const [search, setSearch] = useState('');
@@ -37,17 +38,34 @@ const SearchBarInput = () => {
                         </li>
                     ))}
             </ul> */}
-            <form action="">
-                <input
+            <SearchInputForm action="">
+                <SearchInput
                     type="text"
                     name="searchInput"
                     value={search}
                     onChange={handleSearchChange}
                     placeholder="검색어를 입력하세요"
                 />
-            </form>
+            </SearchInputForm>
         </div>
     )
-}
+};
+
+const SearchInputForm = styled.form`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+`;
+
+const SearchInput = styled.input`
+    flex: 1;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    font-size: 16px;
+    text-align: center;
+`;
 
 export default SearchBarInput;
