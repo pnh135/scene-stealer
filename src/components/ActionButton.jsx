@@ -5,6 +5,7 @@ const ActionButton = () => {
 };
 
 export const ActionButtonStyle = styled.button`
+  word-break: keep-all;
   border-radius: 5px;
   background-color: rgb(105, 224, 139);
   transition: background-color 0.3s;
