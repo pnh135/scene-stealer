@@ -22,12 +22,13 @@ const FeedList = () => {
           <FeedListContentTitle>{Movie.korean_name}</FeedListContentTitle>
           <FeedListContentImg src={Movie.img_url} alt="" />
           <FeedListIcon>
-            <Heart />
-            <MessageCircle />
+            <Heart style={{ cursor: 'pointer' }} />
+            <MessageCircle style={{ cursor: 'pointer' }} />
             <Bookmark
               onClick={() => {
                 addBookMark(Movie.id);
               }}
+              style={{ cursor: 'pointer' }}
             />
           </FeedListIcon>
         </FeedListContent>
