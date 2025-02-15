@@ -30,12 +30,12 @@ const SideBar = () => {
   return (
     <>
       <SideBarWrapper>
-        <Link to="/add-feed">
+        <Link to="main/add-feed">
           <SideBarButton>
             <CopyPlus />
           </SideBarButton>
         </Link>
-        <Link to="/bookmarks">
+        <Link to="main/bookmarks">
           <SideBarButton>
             <Bookmark />
           </SideBarButton>
@@ -52,6 +52,7 @@ const SideBar = () => {
     </>
   );
 };
+export default SideBar;
 
 const SideBarWrapper = styled.div`
   background-color: #fff8e9;
@@ -69,5 +70,3 @@ const SideBarButton = styled.button`
   height: 50px;
   color: #333;
 `;
-
-export default SideBar;
