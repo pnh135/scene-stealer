@@ -4,10 +4,14 @@ import { Heart, MessageCircle, Star } from 'lucide-react';
 
 const FeedList = () => {
   const addBookMark = (id) => {
-    const currentBookmarks = JSON.parse(localStorage.getItem('bookmark')) || [];
-    if (!currentBookmarks.includes(id)) {
-      currentBookmarks.push(id);
-      localStorage.setItem('bookmark', JSON.stringify(currentBookmarks));
+    const currentBookMarks = JSON.parse(localStorage.getItem('bookmark')) || [];
+
+    if (!currentBookMarks.includes(id)) {
+      currentBookMarks.push(id);
+      alert('북마크에 추가되었습니다.');
+      localStorage.setItem('bookmark', JSON.stringify(currentBookMarks));
+    } else {
+      alert('이미 북마크에 추가되어 있습니다.');
     }
   };
 
@@ -32,25 +36,25 @@ const FeedList = () => {
   );
 };
 
-const FeedListWrapper = styled.div`
+export const FeedListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 `;
 
-const FeedListContent = styled.div`
+export const FeedListContent = styled.div`
   list-style: none;
   width: 12rem;
   border-radius: 1rem;
   background-color: green;
 `;
 
-const FeedListContentTitle = styled.p`
+export const FeedListContentTitle = styled.p`
   margin: 0.5rem 0;
   padding-left: 0.5rem;
 `;
 
-const FeedListIcon = styled.div`
+export const FeedListIcon = styled.div`
   padding-left: 0.5rem;
 `;
 
