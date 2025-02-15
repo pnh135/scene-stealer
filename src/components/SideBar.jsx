@@ -61,9 +61,6 @@ export const SideBarWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 50px;
-  padding: 1rem 1.5rem;
-  position: fixed;
-  z-index: 100;
 `;
 
 const SideBarButton = styled.button`
