@@ -52,17 +52,21 @@ const SideBar = () => {
     </>
   );
 };
+
 export default SideBar;
 
 const SideBarWrapper = styled.div`
   height: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 50px;
-  padding: 1rem;
-  margin-right: 1rem;
+  background-color: white;
+  border-right: 1px solid #bdbdbd;
+  padding: 1.5rem;
+  z-index: 100;
 `;
 
 const SideBarButton = styled.button`
