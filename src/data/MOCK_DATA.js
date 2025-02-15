@@ -1,7 +1,7 @@
 const MOCK_DATA = [
     {
       img_url:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+        "https://mblogthumb-phinf.pstatic.net/MjAyMDAxMjVfMjM1/MDAxNTc5OTE1MTA5NzMw.7TMJW2W0Ruv_YpxJ8WCAY81Xub5JL83TJQMgJEUVibog.KPc7hgXkxjbgXH1jW2wNuJbh4vXPX8I3o6fx5KJFKkcg.PNG.lp1205/c0pjm1dba37i_daum_gallery_photo_20180310210632.png?type=w800",
       korean_name: "이상해씨",
       types: ["풀", "독"],
       id: 1,
@@ -9,7 +9,7 @@ const MOCK_DATA = [
     },
     {
       img_url:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+        "https://mblogthumb-phinf.pstatic.net/MjAyMDAxMjVfMjM1/MDAxNTc5OTE1MTA5NzMw.7TMJW2W0Ruv_YpxJ8WCAY81Xub5JL83TJQMgJEUVibog.KPc7hgXkxjbgXH1jW2wNuJbh4vXPX8I3o6fx5KJFKkcg.PNG.lp1205/c0pjm1dba37i_daum_gallery_photo_20180310210632.png?type=w800",
       korean_name: "이상해풀",
       types: ["풀", "독"],
       id: 2,
@@ -17,7 +17,7 @@ const MOCK_DATA = [
     },
     {
       img_url:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+        "https://mblogthumb-phinf.pstatic.net/MjAyMDAxMjVfMjM1/MDAxNTc5OTE1MTA5NzMw.7TMJW2W0Ruv_YpxJ8WCAY81Xub5JL83TJQMgJEUVibog.KPc7hgXkxjbgXH1jW2wNuJbh4vXPX8I3o6fx5KJFKkcg.PNG.lp1205/c0pjm1dba37i_daum_gallery_photo_20180310210632.png?type=w800",
       korean_name: "이상해꽃",
       types: ["풀", "독"],
       id: 3,
@@ -25,7 +25,7 @@ const MOCK_DATA = [
     },
     {
       img_url:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+        "https://mblogthumb-phinf.pstatic.net/MjAyMDAxMjVfMjM1/MDAxNTc5OTE1MTA5NzMw.7TMJW2W0Ruv_YpxJ8WCAY81Xub5JL83TJQMgJEUVibog.KPc7hgXkxjbgXH1jW2wNuJbh4vXPX8I3o6fx5KJFKkcg.PNG.lp1205/c0pjm1dba37i_daum_gallery_photo_20180310210632.png?type=w800",
       korean_name: "파이리",
       types: ["불꽃"],
       id: 4,
@@ -33,7 +33,7 @@ const MOCK_DATA = [
     },
     {
       img_url:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
+        "https://mblogthumb-phinf.pstatic.net/MjAyMDAxMjVfMjM1/MDAxNTc5OTE1MTA5NzMw.7TMJW2W0Ruv_YpxJ8WCAY81Xub5JL83TJQMgJEUVibog.KPc7hgXkxjbgXH1jW2wNuJbh4vXPX8I3o6fx5KJFKkcg.PNG.lp1205/c0pjm1dba37i_daum_gallery_photo_20180310210632.png?type=w800",
       korean_name: "리자드",
       types: ["불꽃"],
       id: 5,
