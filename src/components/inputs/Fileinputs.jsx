@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Fileinputs = () => {
+const FileInputs = () => {
   return (
     <>
       <div className="filebox">
@@ -12,7 +12,7 @@ const Fileinputs = () => {
   );
 };
 
-export default Fileinputs;
+export default FileInputs;
 
 const StdFileInput = styled.input`
   display: inline-block;
