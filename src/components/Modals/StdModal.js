@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
-const AlertModal = ({ isOpen, handleModal }) => {
+const DefaultModal = ({ children }) => {
   return (
-    <StdModal $isOpen={isOpen}>
-      <div>
-        <button onClick={handleModal}>x</button>알림
-      </div>
-      <div>내용11</div>
-    </StdModal>
+    <>
+      <StdModal>{children}</StdModal>
+    </>
   );
 };
 
-export default AlertModal;
+export default DefaultModal;
 
 const StdModal = styled.div`
   display: ${(props) => (props.$isOpen ? 'block' : 'none')};

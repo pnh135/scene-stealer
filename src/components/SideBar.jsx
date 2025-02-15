@@ -1,28 +1,38 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { CopyPlus, Bookmark, BellRing, Settings } from 'lucide-react';
-import AlertModal from './Modals/AlertModal';
+import { useState } from 'react';
+import AlertModal from '../components/Modals/AlertModal';
+import SettingModal from './Modals/SettingModal';
 
 const SideBar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
-    <SideBarWrapper>
-      <Link to="/add-feed">
-        <SideBarButton>
-          <CopyPlus />
+    <>
+      <SideBarWrapper>
+        <Link to="/add-feed">
+          <SideBarButton>
+            <CopyPlus />
+          </SideBarButton>
+        </Link>
+        <Link to="/bookmarks">
+          <SideBarButton>
+            <Bookmark />
+          </SideBarButton>
+        </Link>
+        <SideBarButton onClick={handleModal}>
+          <BellRing />
         </SideBarButton>
-      </Link>
-      <Link to="/bookmarks">
-        <SideBarButton>
-          <Bookmark />
+        <SideBarButton onClick={handleModal}>
+          <Settings />
         </SideBarButton>
-      </Link>
-      <SideBarButton onClick={hadleModal}>
-        <BellRing />
-      </SideBarButton>
-      <SideBarButton>
-        <Settings />
-      </SideBarButton>
-    </SideBarWrapper>
+      </SideBarWrapper>
+      <AlertModal isOpen={isModalOpen} handleModal={handleModal} />
+      <SettingModal isOpen={isModalOpen} handleModal={handleModal} />
+    </>
   );
 };
 
