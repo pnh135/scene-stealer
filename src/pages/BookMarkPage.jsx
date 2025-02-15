@@ -14,6 +14,7 @@ const BookMarkPage = () => {
 
   const RemoveBookMark = (id) => {
     const updatedbookMarks = bookMarks.filter((card) => card !== id);
+    alert('북마크에서 제거되었습니다.');
     setbookMarks(updatedbookMarks);
     localStorage.setItem('bookmark', JSON.stringify(updatedbookMarks));
   };
