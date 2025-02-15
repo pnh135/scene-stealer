@@ -36,18 +36,18 @@ const MainPageWrapper = styled.div`
 
 const MainPageContent = styled.div`
   display: flex;
-  justify-content: space-between;
-  background-color: lightblue;
+  justify-content: flex-start;
+  padding: 20px;
 `;
 
 const MainPageAside = styled.aside`
-  background-color: yellowgreen;
-  flex: 1;
+  /* background-color: yellowgreen; */
+  border-right: 1px solid #bdbdbd;
 `;
 
 const MainPageMain = styled.div`
-  background-color: orange;
-  flex: 10;
+  /* background-color: orange; */
+  flex: 1;
 `;
 
 const MainPageFooter = styled.footer`
