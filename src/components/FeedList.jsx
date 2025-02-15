@@ -3,6 +3,14 @@ import styled from 'styled-components';
 import { Heart, MessageCircle, Star } from 'lucide-react';
 
 const FeedList = () => {
+  const AddBookMark = (id) => {
+    const currentBookmarks = JSON.parse(localStorage.getItem('bookmark')) || [];
+    if (!currentBookmarks.includes(id)) {
+      currentBookmarks.push(id);
+      localStorage.setItem('bookmark', JSON.stringify(currentBookmarks));
+    }
+  };
+
   return (
     <FeedListWrapper>
       {MOCK_DATA.map((Movie) => (
@@ -12,7 +20,11 @@ const FeedList = () => {
           <FeedListIcon>
             <Heart />
             <MessageCircle />
-            <Star />
+            <Star
+              onClick={() => {
+                AddBookMark(Movie.id);
+              }}
+            />
           </FeedListIcon>
         </FeedListContent>
       ))}
