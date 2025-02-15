@@ -9,29 +9,32 @@ const DetailPage = () => {
 
   return (
     <>
-      <Link to="/main">뒤로가기</Link>
+      <Link to="/main">뒤로가기</Link> {/*뒤로가기 아이콘 넣기*/}
       <StdFeedContainer className="feed-container">
-        <div>
-          <StdImageContainer>
-            <StdImage src={movie.img_url} />
-          </StdImageContainer>
-          <StdFeedDetail className="detail">
-            <div className="detail-head">
-              <StdProfile
-                className="icon"
-                src="https://i.pinimg.com/736x/a8/7e/e9/a87ee992d0b9e196edf8211bbc799521.jpg"
-              />
-              <div className="bookmark-icon" />
+        <StdImageContainer>
+          <StdImage src={movie.img_url} />
+        </StdImageContainer>
+        <StdFeedDetail className="detail">
+          <StdFeedHeader className="detail-head">
+            <StdProfile
+              className="icon"
+              src="https://i.pinimg.com/736x/a8/7e/e9/a87ee992d0b9e196edf8211bbc799521.jpg"
+            />
+            <StdBookmark>
               <Bookmark />
-            </div>
-            <div className="hash-tag">
-              <span>#해시태그</span>
-            </div>
-            <div className="star">★★★</div>
-            <div className="comment-list">user: 퍼가요~</div>
-            <input placeholder="add a comment" />
-          </StdFeedDetail>
-        </div>
+            </StdBookmark>
+          </StdFeedHeader>
+          <div className="hash-tag">
+            <span fontSize={'1em'}>#해시태그</span>
+          </div>
+          <div className="star">★★★</div>
+          <ul className="comment-list">
+            <li>user: 퍼가요~</li>
+            <li>user: 퍼가요~</li>
+            <li>user: 퍼가요~</li>
+          </ul>
+          <input placeholder="add a comment" />
+        </StdFeedDetail>
       </StdFeedContainer>
     </>
   );
@@ -40,33 +43,53 @@ const DetailPage = () => {
 export default DetailPage;
 
 const StdFeedContainer = styled.div`
-  display: flex;
+  display: grid;
   text-align: center;
-  max-width: 80%;
-  height: 80%;
+  grid-template-columns: repeat(2, minmax(100px, auto));
+  gap: 5%;
+  max-width: 100%;
   justify-content: center;
-  flex: 2 1 1;
   background-color: yellow;
 `;
 
 const StdFeedDetail = styled.div`
-  margin-top: 5%;
-  min-width: 50%;
-  position: sticky;
+  display: grid;
+  min-width: 40vw;
+  min-height: 50%;
+  position: relative;
   background-color: orange;
-  border-radius: 0 5% 5% 0;
+  padding: 5%;
+  border-radius: 10%;
 `;
 
 const StdProfile = styled.img`
-  width: 25px;
+  max-width: 50px;
+  max-height: 50px;
   background-image: cover;
+  border-radius: 100%;
+`;
+
+const StdBookmark = styled.div`
+  max-width: 30%;
+  max-height: 30%;
 `;
 
 const StdImageContainer = styled.div`
-  min-width: 50%;
-  justify-items: center;
+  display: flex;
+  min-width: 40vw;
+  min-height: 50%;
   background-color: green;
-  border-radius: 5% 0 0 5%;
+  border-radius: 10%;
 `;
 
-const StdImage = styled.img``;
+const StdImage = styled.img`
+  width: 100%;
+`;
+
+const StdFeedHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  max-height: fit-content;
+  flex: 3 1 0;
+  gap: 20%;
+`;
