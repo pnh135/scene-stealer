@@ -23,7 +23,6 @@ const MainPage = () => {
 
 const MainPageWrapper = styled.main`
   margin: 0 auto;
-  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -34,18 +33,16 @@ export const MainPageContent = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  gap: 1rem;
-  padding: 20px;
-  background-color: #e9b0b0;
-  margin-top: 100px;
 `;
 
 const MainPageSideBar = styled(SideBarWrapper)`
   border-right: 1px solid #bdbdbd;
+  padding: 2rem;
 `;
 
 export const MainPageMain = styled.div`
   flex: 1;
+  padding: 1.5rem;
 `;
 
 export default MainPage;
