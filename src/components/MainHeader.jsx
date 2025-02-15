@@ -39,6 +39,7 @@ const MainHeader = () => {
 const MainPageHeader = styled.header`
   position: fixed;
   width: 100%;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
