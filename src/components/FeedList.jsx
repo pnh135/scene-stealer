@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import MOCK_DATA from '../data/MOCK_DATA';
 import styled from 'styled-components';
 import { Heart, MessageCircle, Star } from 'lucide-react';
@@ -7,13 +8,15 @@ const FeedList = () => {
     <FeedListWrapper>
       {MOCK_DATA.map((Movie) => (
         <FeedListContent key={Movie.id}>
-          <FeedListContentTitle>{Movie.korean_name}</FeedListContentTitle>
-          <img src={Movie.img_url} alt="" />
-          <FeedListIcon>
-            <Heart />
-            <MessageCircle />
-            <Star />
-          </FeedListIcon>
+          <Link to={`/main/detail/${Movie.id}`}>
+            <FeedListContentTitle>{Movie.korean_name}</FeedListContentTitle>
+            <img src={Movie.img_url} alt="" />
+            <FeedListIcon>
+              <Heart />
+              <MessageCircle />
+              <Star />
+            </FeedListIcon>
+          </Link>
         </FeedListContent>
       ))}
     </FeedListWrapper>
