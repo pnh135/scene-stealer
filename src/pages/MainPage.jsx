@@ -6,43 +6,36 @@ import MainFooter from '../components/MainFooter';
 
 const MainPage = () => {
   return (
-    <MainPageContainer>
-      <MainPageWrapper>
-        <MainHeader />
-        <MainPageContent>
-          <MainPageAside>
-            <SideBar />
-          </MainPageAside>
-          <MainPageMain>
-            <FeedList />
-          </MainPageMain>
-        </MainPageContent>
-        <MainFooter />
-      </MainPageWrapper>
-    </MainPageContainer>
+    <MainPageWrapper>
+      <MainHeader />
+      <MainPageContent>
+        <SideBar />
+        <MainPageMain>
+          <FeedList />
+        </MainPageMain>
+      </MainPageContent>
+      <MainFooter />
+    </MainPageWrapper>
   );
 };
 
-const MainPageContainer = styled.main`
+const MainPageWrapper = styled.main`
   margin: 0 auto;
   width: 100%;
-  height: 100vh;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
   text-align: center;
 `;
 
-const MainPageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const MainPageContent = styled.div`
+  width: 100%;
   display: flex;
   justify-content: flex-start;
+  gap: 1rem;
   padding: 20px;
-`;
-
-export const MainPageAside = styled.aside`
-  border-right: 1px solid #bdbdbd;
+  margin-top: 100px;
+  background-color: #e9b0b0;
 `;
 
 export const MainPageMain = styled.div`

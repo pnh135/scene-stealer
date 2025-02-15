@@ -56,8 +56,9 @@ const SideBar = () => {
 export default SideBar;
 
 const SideBarWrapper = styled.div`
-  height: 100%;
+  height: calc(100vh - 100px);
   position: fixed;
+  top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
