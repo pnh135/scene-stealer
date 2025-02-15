@@ -1,5 +1,6 @@
 import CreateFeedInputs from "../components/inputs/CreateFeedInputs";
 import LoginInputs from "../components/inputs/LoginInputs";
+import SearchBarInput from "../components/inputs/SearchBarInput";
 import SignupInputs from "../components/inputs/SignupInputs";
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <LoginInputs />
         <SignupInputs />
         <CreateFeedInputs />
+        <SearchBarInput />
       </div>
     </>
   );

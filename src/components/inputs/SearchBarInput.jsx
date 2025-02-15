@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 
 const SearchBarInput = () => {
     const [search, setSearch] = useState('');
@@ -10,7 +11,7 @@ const SearchBarInput = () => {
 
     // 검색어에 따라 필터링된 데이터 생성
     const filterSearch = searchFeedData.filter((searchInfo) =>
-        searchInfo.name.toLowerCase().includes(search.action())
+        searchInfo.name.toLowerCase().includes(search.toLowerCase())
     );
 
     // 가짜 데이터 가져오기 (API 요청 대신)
@@ -25,17 +26,17 @@ const SearchBarInput = () => {
 
     return (
         <div>
-            <ul>
+            {/* <ul>
                 {filterSearch.map((feed) => (
                         <li className="feed" key={feed.id}>
                             <img
-                                src="${feed.id}"
-                                alt={"feed.name"}
+                                src="https://via.placeholder.com/50?text=${feed.name}"
+                                alt={feed.name}
                             />
                             <p>{feed.name}</p>
                         </li>
                     ))}
-            </ul>
+            </ul> */}
             <form action="">
                 <input
                     type="text"
