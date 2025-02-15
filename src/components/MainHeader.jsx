@@ -7,7 +7,7 @@ const MainHeader = () => {
   return (
     <MainPageHeader>
       <HeaderLogo>
-        <Link to="/">
+        <Link to="/main">
           <img
             src="https://velog.velcdn.com/images/_young/post/dc9091d0-65fa-411a-94d1-3471b80eec5b/image.png"
             alt="logo"
@@ -19,7 +19,6 @@ const MainHeader = () => {
             }}
           />
         </Link>
-        {/* to="/main" 변경해야 함 */}
       </HeaderLogo>
       <HeaderSearch>
         <Search />
