@@ -26,19 +26,17 @@ const SideBar = () => {
 };
 
 const SideBarWrapper = styled.div`
-  background-color: #fff8e9;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 30px;
-  padding-top: 30px;
+  gap: 50px;
+  padding: 1rem;
+  margin-right: 1rem;
 `;
 
 const SideBarButton = styled.button`
-  width: 50px;
-  height: 50px;
   color: #333;
 `;
 

@@ -5,11 +5,13 @@ const ActionButton = () => {
 };
 
 export const ActionButtonStyle = styled.button`
+  word-break: keep-all;
   border-radius: 5px;
-  background-color: rgb(105, 224, 139);
+  border: 1px solid #bdbdbd;
+  padding: 0.5rem;
   transition: background-color 0.3s;
   &:hover {
-    background-color: rgb(111, 111, 111);
+    background-color: #bdbdbd;
   }
 `;
 
