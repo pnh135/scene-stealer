@@ -4,8 +4,8 @@ import { createClient } from '@supabase/supabase-js';
 const supabase = createClient(
     // import.meta.env.VITE_APP_SUPABASE_URL, 
     // import.meta.env.VITE_APP_SUPABASE_ANON_KEY
-    "https://fvoinfbnjitrkplgaody.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ2b2luZmJuaml0cmtwbGdhb2R5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0MzQwOTYsImV4cCI6MjA1NTAxMDA5Nn0.NPwbLjNX9rlN0oFpD-nBlccJL6mnwd_pHaKIt_O2drk"
+    "https://lvsorpjmmzxxppsdbwmb.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2c29ycGptbXp4eHBwc2Rid21iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2NzQ3NzYsImV4cCI6MjA1NTI1MDc3Nn0.Rxjk4VwemB-rQSAYr6u5dVZbxChDWuxeJu-AINGOvs4"
 );
 
 export default supabase;
