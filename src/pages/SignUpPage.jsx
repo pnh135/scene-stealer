@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import supabase from '../supabase/Client';
 
 const SignUpPage = () => {
@@ -47,10 +48,8 @@ const SignUpPage = () => {
     });
     if (error) throw error;
 
-    setUserId('');
-    setPassword('');
-    setEmail('');
-    setname('');
+alert('회원가입 완료! 로그인 페이지로 이동합니다!')
+Navigate("/main/login")
   };
 
   return (
