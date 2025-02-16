@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useEffect } from 'react';
 import supabase from '../supabase/Client';
 
 const SignUpPage = () => {
@@ -21,11 +20,14 @@ const SignUpPage = () => {
       return alert('아이디에는 영어와 숫자만 들어가야 합니다.');
     }
 
-    const getUserId = async () => {
-      const { data, error } = await supabase.from('user_info').select('user_id');
-      console.log(data);
-    };
-    getUserId();
+
+    const { data: user_info } = await supabase
+    .from('user_info')
+    .select('user_id')
+  
+    if(user_info.find(({user_id}) => (user_id === userId))){
+      return alert('이미 존재하는 아이디 입니다.')
+    }
 
     const { data, error } = await supabase.auth.signUp({
       email,
