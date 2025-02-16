@@ -18,9 +18,11 @@ const SideBar = () => {
       <SideBarButton>
         <BellRing />
       </SideBarButton>
+      <Link to="/main/setting">
       <SideBarButton>
         <Settings />
       </SideBarButton>
+      </Link>
     </SideBarWrapper>
   );
 };
