@@ -15,6 +15,9 @@ const SettingPage = () => {
           </MainPageAside>
           <MainPageMain>
             <ActionButton/>
+            <p>아이디 변경</p>
+            <p>비밀번호 변경</p>
+            <p>이메일 변경</p>
           </MainPageMain>
         </MainPageContent>
         <MainFooter />
