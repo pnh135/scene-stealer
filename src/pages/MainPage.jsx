@@ -1,34 +1,32 @@
 import styled from 'styled-components';
-import Side from '../components/SideBar';
+import SideBar from '../components/SideBar';
 import MainHeader from '../components/MainHeader';
-import { Link } from 'react-router-dom';
+import FeedList from '../components/FeedList';
+import MainFooter from '../components/MainFooter';
 
 const MainPage = () => {
   return (
-    <>
-      <Link to="/">
-        <button>홈페이지로 이동하기</button>
-      </Link>
-
-      <MainPageContainer>
-        <MainPageWrapper>
-          <MainHeader />
-          <MainPageContent>
-            <MainPageAside>
-              <Side />
-            </MainPageAside>
-            <MainPageMain>main</MainPageMain>
-          </MainPageContent>
-          <MainPageFooter>Scene Stealer</MainPageFooter>
-        </MainPageWrapper>
-      </MainPageContainer>
-    </>
+    <MainPageContainer>
+      <MainPageWrapper>
+        <MainHeader />
+        <MainPageContent>
+          <MainPageAside>
+            <SideBar />
+          </MainPageAside>
+          <MainPageMain>
+            <FeedList />
+          </MainPageMain>
+        </MainPageContent>
+        <MainFooter />
+      </MainPageWrapper>
+    </MainPageContainer>
   );
 };
 
 const MainPageContainer = styled.main`
   margin: 0 auto;
   width: 100%;
+  height: 100vh;
   text-align: center;
 `;
 
@@ -37,27 +35,18 @@ const MainPageWrapper = styled.div`
   flex-direction: column;
 `;
 
-const MainPageContent = styled.div`
+export const MainPageContent = styled.div`
   display: flex;
-  justify-content: space-between;
-  background-color: lightblue;
+  justify-content: flex-start;
+  padding: 20px;
 `;
 
-const MainPageAside = styled.aside`
-  background-color: yellowgreen;
+export const MainPageAside = styled.aside`
+  border-right: 1px solid #bdbdbd;
+`;
+
+export const MainPageMain = styled.div`
   flex: 1;
-`;
-
-const MainPageMain = styled.div`
-  background-color: orange;
-  flex: 10;
-  /* height: 100vh; */
-`;
-
-const MainPageFooter = styled.footer`
-  background-color: #333;
-  color: white;
-  padding: 30px;
 `;
 
 export default MainPage;

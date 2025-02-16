@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
         font-family: 'Arial', sans-serif;
         line-height: 1.5;
-        color: #333;
+        font-size: 1rem;
     }
 
     a {

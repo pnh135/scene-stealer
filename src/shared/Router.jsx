@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import MainPage from '../pages/MainPage';
-import SideBar from '../components/SideBar';
 import AddFeedPage from '../pages/AddFeedPage';
-import BookmarksPage from '../pages/BookmarksPage';
+import BookMarkPage from '../pages/BookMarkPage';
+import LoginPage from '../pages/LoginPage';
+import SignupPage from '../pages/SignupPage';
+import DetailPage from '../pages/DetailPage';
 
 const Router = () => {
   return (
@@ -11,9 +13,11 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/main" element={<MainPage />} />
-        <Route path="/" element={<SideBar />} />
-        <Route path="/add-feed" element={<AddFeedPage />} />
-        <Route path="/bookmarks" element={<BookmarksPage />} />
+        <Route path="/main/add-feed" element={<AddFeedPage />} />
+        <Route path="/main/bookmark" element={<BookMarkPage />} />
+        <Route path="/main/login" element={<LoginPage />} />
+        <Route path="/main/signup" element={<SignupPage />} />
+        <Route path="/main/detail/:id" element={<DetailPage />} />
       </Routes>
     </BrowserRouter>
   );
