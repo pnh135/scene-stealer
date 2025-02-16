@@ -35,7 +35,6 @@ const StdInputContainer = styled.div`
   grid-template-columns: repeat(2, minmax(100px, auto));
   background-color: orange;
   justify-content: center;
-  align-items: center;
 `;
 
 const StdBtn = styled.button`
