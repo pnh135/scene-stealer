@@ -20,7 +20,7 @@ export const ActionButtonStyle = styled.button`
 `;
 
 const HandleBackStyle = styled(ActionButtonStyle)`
-  margin: 0 0 1rem 1rem;
+  margin-bottom: 1rem;
 `;
 
 export default ActionButton;
