@@ -7,22 +7,39 @@ import SettingModal from './Modals/SettingModal';
 
 const SideBar = () => {
   const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
 
+  // 기존 로직
+  // const handleAlertModal = () => {
+  //   if (isAlertModalOpen === true) {
+  //     setIsAlertModalOpen(false);
+  //   }
+
+  //   setIsSettingModalOpen(!isSettingModalOpen);
+  // };
+
+  // const handleSettingModal = () => {
+  //   if (isSettingModalOpen === true) {
+  //     setIsSettingModalOpen(false);
+  //   }
+
+  //   setIsAlertModalOpen(!isAlertModalOpen);
+  // };
+
+  // 수정 로직
   const handleAlertModal = () => {
-    if (isModalOpen === true) {
-      setIsModalOpen(false);
-    }
-
-    setIsAlertModalOpen(!isAlertModalOpen);
+    setIsAlertModalOpen(true);
+    setIsSettingModalOpen(false); // 설정 모달 닫기
   };
 
-  const handleModal = () => {
-    if (isAlertModalOpen === true) {
-      setIsAlertModalOpen(false);
-    }
+  const handleSettingModal = () => {
+    setIsAlertModalOpen(false); // 알림 모달 닫기
+    setIsSettingModalOpen(true);
+  };
 
-    setIsModalOpen(!isModalOpen);
+  const handleCloseModal = () => {
+    setIsAlertModalOpen(false);
+    setIsSettingModalOpen(false);
   };
 
   return (
@@ -40,11 +57,16 @@ const SideBar = () => {
       <SideBarButton onClick={handleAlertModal}>
         <BellRing />
       </SideBarButton>
-      <SideBarButton onClick={handleModal}>
+      <SideBarButton onClick={handleSettingModal}>
         <Settings />
       </SideBarButton>
-      <AlertModal isAlertModalOpen={isAlertModalOpen} handleAlertModal={handleAlertModal} />
-      <SettingModal isOpen={isModalOpen} handleModal={handleModal} />
+      {/* 기존 로직 */}
+      {/* <AlertModal isAlertModalOpen={isAlertModalOpen} handleSettingModal={handleSettingModal} />
+      <SettingModal isSettingModalOpen={isSettingModalOpen} handleAlertModal={handleAlertModal} /> */}
+
+      {/* 수정 로직 */}
+      <AlertModal isOpen={isAlertModalOpen} onClose={handleCloseModal} />
+      <SettingModal isOpen={isSettingModalOpen} onClose={handleCloseModal} />
     </SideBarWrapper>
   );
 };
