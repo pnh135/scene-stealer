@@ -10,6 +10,10 @@ const SignUpPage = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
+    if (!userId.trim() || !password.trim() || !name.trim() || !email.trim()) {
+      return alert('모든 내용을 입력해 주세요.');
+    }
+
     if (password.length < 6) {
       return alert('비밀번호는 6글자 이상 이여야 합니다.');
     }
@@ -27,7 +31,7 @@ const SignUpPage = () => {
     }
 
     if (user_info.find((e) => e.email === email)) {
-      return alert('이미 존재하는 이메일 입니다.')
+      return alert('이미 존재하는 이메일 입니다.');
     }
 
     const { data, error } = await supabase.auth.signUp({
