@@ -1,16 +1,23 @@
 import styled from 'styled-components';
 
 const AlertModal = ({ isAlertModalOpen }) => {
-  return (
-    <StdModal $isAlertModalOpen={isAlertModalOpen}>
-      <div>알림창</div>
-    </StdModal>
-  );
+  return <AlertModalStyle $isAlertModalOpen={isAlertModalOpen}>알림</AlertModalStyle>;
 };
 
-export default AlertModal;
-
-const StdModal = styled.div`
+const AlertModalStyle = styled.div`
   display: ${(props) => (props.$isAlertModalOpen ? 'block' : 'none')};
-  /* background-color: #c2fff8; */
+  width: 320px;
+  height: 480px;
+  position: fixed;
+  top: 120px;
+  left: 110px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: white;
+  padding: 1.2rem;
+  border: 1px solid #bdbdbd;
+  text-align: left;
+  border-radius: 1rem;
 `;
+
+export default AlertModal;
