@@ -20,13 +20,14 @@ const SignUpPage = () => {
       return alert('아이디에는 영어와 숫자만 들어가야 합니다.');
     }
 
+    const { data: user_info } = await supabase.from('user_info').select('*');
 
-    const { data: user_info } = await supabase
-    .from('user_info')
-    .select('user_id')
-  
-    if(user_info.find(({user_id}) => (user_id === userId))){
-      return alert('이미 존재하는 아이디 입니다.')
+    if (user_info.find(({ user_id }) => user_id === userId)) {
+      return alert('이미 존재하는 아이디 입니다.');
+    }
+
+    if (user_info.find((e) => e.email === email)) {
+      return alert('이미 존재하는 이메일 입니다.')
     }
 
     const { data, error } = await supabase.auth.signUp({
