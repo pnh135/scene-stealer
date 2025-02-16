@@ -3,17 +3,16 @@ import supabase from '../supabase/Client';
 
 const LoginPage = () => {
 //연결 확인용 함수
-  useEffect(() => {
-    const getusers = async () => {
-      const a = await supabase.from('users_info').select('*');
-      console.log(a);
-    };
-    getusers();
-  }, []);
+const login = async () =>{
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password
+  })
+}
 
   return (
     <form>
-      <input placeholder="ID"></input>
+      <input placeholder="email"></input>
       <input placeholder="PW"></input>
       <button>로그인</button>
     </form>
