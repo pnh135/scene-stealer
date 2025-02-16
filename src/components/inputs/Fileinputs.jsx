@@ -32,8 +32,8 @@ export default FileInputs;
 
 const StdFileInput = styled.input`
   display: inline-block;
-  width: 300px;
-  height: 300px;
+  width: 40%;
+  height: 40px;
   padding: 0 10px;
   vertical-align: middle;
   border: 1px solid #dddddd;
