@@ -21,13 +21,14 @@ const CreateFeedInputs = () => {
 
   const addTag = (newTag) => {
     if (!newTag.trim()) return;
+
     if (createFeedInput.tagsArray.includes(newTag)) {
-      setErrorMessage('이미 추가한 태그입니다.'); //  중복 태그 추가 방지
+      setErrorMessage('이미 추가한 태그입니다.'); // 중복 태그 추가 방지
       return;
     }
 
-    if (createFeedInput.tagsArray.length >= 4) {
-      setErrorMessage('해시태그는 최대 4개입니다.'); // 태그 개수 제한 메시지
+    if (createFeedInput.tagsArray.length >= 3) {
+      setErrorMessage('해시태그는 최대 3개입니다.'); // 태그 개수 제한 메시지
       return;
     }
 
@@ -56,103 +57,99 @@ const CreateFeedInputs = () => {
   };
 
   return (
-    <div>
+    <>
       <CreatInputsForm action="">
-        <AllInput
+        {/* 기본 입력 인풋 */}
+        <AllInputStyle
           type="text"
           name="feedTitle"
           value={createFeedInput.feedTitle}
           onChange={handleCreateFeedChange}
-          placeholder="제목"
+          placeholder="제목을 입력하세요."
         />
 
-        <AllInput
+        <AllInputStyle
           type="text"
           name="contentTitle"
           value={createFeedInput.contentTitle}
           onChange={handleCreateFeedChange}
-          placeholder="드라마 / 영화 이름"
+          placeholder="드라마 / 영화 제목을 입력하세요."
         />
 
-        {/* 태그 입력 인풋 */}
-        <TagInputContainer>
-          <HashtagInput
-            type="text"
-            value={createFeedInput.tagInput}
-            onChange={(e) =>
-              setCreateFeedInput((prev) => ({
-                ...prev,
-                tagInput: e.target.value
-              }))
-            }
-            onKeyDown={handleKeyDown}
-            placeholder="해시태그 엔터로 입력 (최대 4개)"
-          />
-        </TagInputContainer>
-
-        {/* 에러 메시지 출력 */}
-        {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+        {/* 해시태그 입력 인풋 */}
+        <AllInputStyle
+          type="text"
+          value={createFeedInput.tagInput}
+          onChange={(e) =>
+            setCreateFeedInput((prev) => ({
+              ...prev,
+              tagInput: e.target.value
+            }))
+          }
+          onKeyDown={handleKeyDown}
+          placeholder="해시태그 (최대 3개)"
+        />
 
         {/* 태그 리스트 */}
-        <TagListContainer>
-          {createFeedInput.tagsArray.map((tag, index) => (
-            <TagItem key={index}>
-              #{tag}
-              <span onClick={() => removeTag(index)}>✖</span>
-            </TagItem>
-          ))}
-        </TagListContainer>
+        <div>
+          <TagListContainer>
+            {createFeedInput.tagsArray.map((tag, index) => (
+              <TagItem key={index}>
+                #{tag}
+                <span onClick={() => removeTag(index)}>✖</span>
+              </TagItem>
+            ))}
+          </TagListContainer>
+
+          {/* 에러 메시지 출력 */}
+          {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+        </div>
       </CreatInputsForm>
-    </div>
+    </>
   );
 };
 
 const CreatInputsForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 1rem;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2rem;
 `;
 
-const TagInputContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+const AllInputStyle = styled.input`
+  width: 100%;
   background-color: #f0f0f0;
-  padding: 0.4rem 1rem;
-  border-radius: 0.7rem;
-  padding: 12px 16px;
-  border-radius: 11px;
+  text-align: left;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
   appearance: none;
-  border-style: solid;
-  border-width: 2px;
 
   &::placeholder {
-    color: #aaa;
+    color: #333;
   }
 
-  &:has(input:focus) {
-    border-color: #7fc1ff;
+  &:focus {
+    border-color: black;
   }
 `;
 
 const ErrorText = styled.p`
   color: red;
   font-size: 14px;
-  margin: 5px 0; /* 입력창과 태그 리스트 사이에 여백 */
+  margin-top: 1rem;
 `;
 
 const TagListContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
   gap: 0.5em;
-  margin-top: 5px;
 `;
 
 const TagItem = styled.div`
   display: flex;
   align-items: center;
-  padding: 0.5em 0.75em;
-  border-radius: 20px;
+  padding: 0 0.5em;
+  border-radius: 5rem;
   background-color: #d9d9d9;
   font-size: 14px;
 
@@ -160,42 +157,14 @@ const TagItem = styled.div`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(48, 48, 48);
+    background-color: #333;
     border-radius: 50%;
-    margin-left: 0.3em;
-    font-size: 12px;
-    color: #fff;
-    width: 16px;
-    height: 16px;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    width: 1rem;
+    height: 1rem;
     cursor: pointer;
-  }
-`;
-
-const HashtagInput = styled.input`
-  flex-grow: 1;
-  padding: 0.5em;
-  max-width: 50%;
-  background-color: #f0f0f0;
-  border: none;
-  outline: 2px;
-`;
-
-const AllInput = styled.input`
-  background-color: #f0f0f0;
-  width: 10rem;
-  padding: 12px 16px;
-  border-radius: 11px;
-  appearance: none;
-  border-style: solid;
-  border-width: 2px;
-
-  &::placeholder {
-    color: #aaa;
-  }
-
-  &:focus {
-    border-color: #7fc1ff;
-    outline: none;
   }
 `;
 

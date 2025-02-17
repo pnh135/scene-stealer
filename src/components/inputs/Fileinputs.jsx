@@ -14,39 +14,44 @@ const FileInputs = () => {
   };
 
   const img_ref = useRef(null);
+
   // 업로드 하지 않을 때 첨부파일로 보이게 하는 초기값
   const [placeholder, setPlaceholder] = useState('첨부파일');
 
   return (
     <>
-      <div className="filebox">
-        <StdFileInput className="upload-name" placeholder={placeholder} disabled />
-        <StdLabel htmlFor="file">파일찾기</StdLabel>
+      <FileInputStyle className="filebox">
+        <FileInput className="upload-name" placeholder={placeholder} disabled />
+        <LabelStyle htmlFor="file">파일찾기</LabelStyle>
         <input type="file" id="file" accept=".png,.jpg, .jpeg" ref={img_ref} onChange={fileText} />
-      </div>
+      </FileInputStyle>
     </>
   );
 };
 
-const StdFileInput = styled.input`
-  display: inline-block;
-  width: 40%;
-  height: 40px;
-  padding: 0 10px;
-  vertical-align: middle;
-  border: 1px solid #dddddd;
-  color: #999999;
+const FileInputStyle = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
 `;
 
-const StdLabel = styled.label`
+const FileInput = styled.input`
   display: inline-block;
-  padding: 10px 20px;
-  color: #fff;
-  vertical-align: middle;
-  background-color: #999999;
+  color: #bdbdbd;
+  border: solid 1px #bdbdbd;
+`;
+
+const LabelStyle = styled.label`
+  display: inline-block;
+  border: 1px solid #333;
+  padding: 0.5rem;
+  transition: background-color 0.3s;
   cursor: pointer;
-  height: 40px;
-  margin-left: 10px;
+  &:hover {
+    background-color: #bdbdbd;
+  }
 `;
 
 export default FileInputs;

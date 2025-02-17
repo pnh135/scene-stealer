@@ -12,7 +12,7 @@ const AddFeedPage = () => {
   const resetForm = () => window.location.reload();
 
   return (
-    <div>
+    <>
       <MainHeader />
       <MainPageContent>
         <MainPageSideBar>
@@ -22,50 +22,64 @@ const AddFeedPage = () => {
           <ActionButton />
           <AddFeedContainer>
             <ImgUpLoad>
-              <FileInputs />
               {/* supabase로 업로드 받으면 미리보기로 이미지 렌더링 보여주는 창 : supabase 연결 후 구현할 예정 */}
-              <img src="" alt="" />
+              <img src="" alt="" style={{ width: '300px', height: '300px', backgroundColor: '#bdbdbd' }} />
+              <FileInputs />
             </ImgUpLoad>
             <AddFeedFormWrapper>
               <CreateFeedInputs />
               <CancelPostButton>
-                <ButtonStyle onClick={resetForm}>취소</ButtonStyle>
-                <ButtonStyle>게시</ButtonStyle>
+                <CancelButtonStyle onClick={resetForm}>취소</CancelButtonStyle>
+                <PostButtonStyle>게시</PostButtonStyle>
               </CancelPostButton>
             </AddFeedFormWrapper>
           </AddFeedContainer>
         </MainPageMain>
       </MainPageContent>
       <MainFooter />
-    </div>
+    </>
   );
 };
 
 const AddFeedContainer = styled.div`
-  /* display: grid;
-  grid-template-columns: repeat(2, minmax(300px, auto)); */
-  background-color: orange;
+  height: calc(100vh - 262px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, auto));
   justify-content: center;
+  gap: 5rem;
 `;
 
-const ImgUpLoad = styled.div``;
+const ImgUpLoad = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+`;
 
-const AddFeedFormWrapper = styled.div``;
+const AddFeedFormWrapper = styled.div`
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const CancelPostButton = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, minmax(100px, auto));
-  gap: 20%;
-  background-color: palevioletred;
+  display: flex;
+  text-align: center;
+  gap: 1rem;
   justify-content: center;
 `;
 
-const ButtonStyle = styled(ActionButtonStyle)`
-  /* background-color: red;
-  color: white;
-  width: 100px;
-  border-radius: 10px;
-  text-align: center; */
+const CancelButtonStyle = styled(ActionButtonStyle)`
+  width: 100%;
+`;
+
+const PostButtonStyle = styled(ActionButtonStyle)`
+  width: 100%;
+  &:hover {
+    border-color: transparent;
+    background-color: yellowgreen;
+  }
 `;
 
 export default AddFeedPage;
