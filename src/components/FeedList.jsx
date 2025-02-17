@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import MOCK_DATA from '../data/MOCK_DATA';
 import styled from 'styled-components';
 import { Heart, MessageCircle, Bookmark } from 'lucide-react';
 
 const FeedList = () => {
+  const navigate = useNavigate();
   const addBookMark = (id) => {
     const currentBookMarks = JSON.parse(localStorage.getItem('bookmark')) || [];
 
@@ -18,14 +20,15 @@ const FeedList = () => {
   return (
     <FeedListWrapper>
       {MOCK_DATA.map((card) => (
-        <FeedListContent key={card.id}>
+        <FeedListContent key={card.id} onClick={() => navigate(`/main/detail/${card.id}`)}>
           <FeedListContentTitle>{card.korean_name}</FeedListContentTitle>
           <FeedListContentImg src={card.img_url} alt={card.korean_name} />
           <FeedListIcon>
             <Heart style={{ cursor: 'pointer' }} />
             <MessageCircle style={{ cursor: 'pointer' }} />
             <Bookmark
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 addBookMark(card.id);
               }}
               style={{ cursor: 'pointer' }}
@@ -41,7 +44,6 @@ export const FeedListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 1rem;
-  padding-left: 1rem;
 `;
 
 export const FeedListContent = styled.div`
@@ -50,6 +52,7 @@ export const FeedListContent = styled.div`
   border-radius: 1rem;
   background-color: #f4f4f4;
   padding: 1.2rem;
+  cursor: pointer;
 `;
 
 export const FeedListContentTitle = styled.p`
@@ -61,6 +64,7 @@ export const FeedListContentTitle = styled.p`
 `;
 
 export const FeedListContentImg = styled.img`
+  width: 100%;
   height: 200px;
   display: flex;
   align-items: center;
