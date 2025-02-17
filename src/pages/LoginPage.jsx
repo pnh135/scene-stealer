@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import supabase from '../supabase/Client';
 import { useNavigate } from 'react-router-dom';
+import { StdLoginContainer, StdDataInput, StdDataBtn } from '../components/UserDataField';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -28,17 +29,23 @@ const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={login}>
-      <input placeholder="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-      <input
+    <StdLoginContainer onSubmit={login}>
+      <StdDataInput
+        placeholder="email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <StdDataInput
         placeholder="password"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button>로그인</button>
-    </form>
+      <StdDataBtn>로그인</StdDataBtn>
+    </StdLoginContainer>
   );
 };
 

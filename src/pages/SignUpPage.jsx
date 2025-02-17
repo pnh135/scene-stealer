@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import supabase from '../supabase/Client';
+import { StdSignupContainer, StdDataInput, StdDataBtn } from '../components/UserDataField';
 
 const SignUpPage = () => {
   const [userId, setUserId] = useState('');
@@ -55,28 +56,33 @@ const SignUpPage = () => {
   };
 
   return (
-    <form onSubmit={handleSignUp}>
-      <input
+    <StdSignupContainer onSubmit={handleSignUp}>
+      <StdDataInput
         placeholder="아이디를 입력해 주세요."
         type="text"
         value={userId}
         onChange={(e) => setUserId(e.target.value)}
       />
-      <input
+      <StdDataInput
         placeholder="비밀번호를 입력해 주세요."
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <input placeholder="이름을 입력해 주세요." type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      <input
+      <StdDataInput
+        placeholder="이름을 입력해 주세요."
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <StdDataInput
         placeholder="이메일을 입력해 주세요."
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button>회원가입</button>
-    </form>
+      <StdDataBtn>회원가입</StdDataBtn>
+    </StdSignupContainer>
   );
 };
 
