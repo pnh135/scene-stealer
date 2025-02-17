@@ -4,16 +4,16 @@ import supabase from '../../supabase/Client';
 
 const FileInputs = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imageUrl, setImageUrl] = useState('');
-  const [placeholder, setPlaceholder] = useState('첨부파일');
+  const [imageUrl, setImageUrl] = useState("");
+  const [placeholder, setPlaceholder] = useState("첨부파일");
 
-  const bucketName = 'news_feeds_image'; // Supabase Storage 버킷명
+  const bucketName = "news_feeds_image"; // Supabase Storage 버킷명
 
-  // 파일 선택 시 자동 업로드
+  // 파일 선택 시 미리보기 및 업로드 실행
   const handleFileChange = async (e) => {
     if (e.target.files.length > 0) {
       const file = e.target.files[0];
-      setSelectedFile(file);
+      setSelectedFile(URL.createObjectURL(file)); // 미리보기용 URL 생성
       setPlaceholder(file.name); // UI 업데이트
 
       // 자동 업로드 실행
@@ -24,18 +24,18 @@ const FileInputs = () => {
   // 이미지 업로드 함수
   const handleStorageUpload = async (file) => {
     if (!file) {
-      alert('이미지를 선택하세요.');
+      alert("이미지를 선택하세요.");
       return;
     }
 
     const fileName = `${Date.now()}_${file.name}`; // 고유한 파일명 생성
 
-    // Supabase Storage에 업로드
+    // Supabase Storage에 업로드 (data 제거)
     const { error } = await supabase.storage.from(bucketName).upload(fileName, file);
 
     if (error) {
-      console.error('이미지 업로드 오류:', error.message);
-      alert('업로드 실패');
+      console.error("이미지 업로드 오류:", error.message);
+      alert("업로드 실패");
       return;
     }
 
@@ -46,6 +46,14 @@ const FileInputs = () => {
 
   return (
     <>
+      <PreviewContainer>
+        {selectedFile ? (
+          <PreviewImage src={selectedFile} alt="미리보기" />
+        ) : (
+          <EmptyPreview>이미지를 선택하세요</EmptyPreview>
+        )}
+      </PreviewContainer>
+
       <FileInputStyle className="filebox">
         <FileInput className="upload-name" placeholder={placeholder} disabled />
         <LabelStyle htmlFor="file">파일찾기</LabelStyle>
@@ -61,6 +69,26 @@ const FileInputs = () => {
     </>
   );
 };
+
+// 스타일링 코드
+const PreviewContainer = styled.div`
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+`;
+
+const PreviewImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`;
+
+const EmptyPreview = styled.div`
+  color: #888;
+`;
 
 const FileInputStyle = styled.div`
   width: 100%;
