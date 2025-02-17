@@ -4,7 +4,7 @@ import MainPage from '../pages/MainPage';
 import AddFeedPage from '../pages/AddFeedPage';
 import BookMarkPage from '../pages/BookMarkPage';
 import LoginPage from '../pages/LoginPage';
-import SignupPage from '../pages/SignupPage';
+import SignupPage from '../pages/SignUpPage';
 import DetailPage from '../pages/DetailPage';
 
 const Router = () => {

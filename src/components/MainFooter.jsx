@@ -7,8 +7,9 @@ const MainFooter = () => {
 const MainFooterStyle = styled.footer`
   background-color: #333;
   color: white;
-  padding: 30px;
+  padding: 1rem;
   text-align: center;
+  z-index: 100;
 `;
 
 export default MainFooter;
