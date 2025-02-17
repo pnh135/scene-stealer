@@ -1,6 +1,6 @@
-import { useState } from "react";
-import styled from "styled-components";
-import supabase from "../../supabase/Client";
+import { useState } from 'react';
+import styled from 'styled-components';
+import supabase from '../../supabase/Client';
 
 const FileInputs = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -94,19 +94,22 @@ const FileInputStyle = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 1rem;
+  margin-top: 5rem;
 `;
 
 const FileInput = styled.input`
   display: inline-block;
   color: #bdbdbd;
   border: solid 1px #bdbdbd;
+  border-radius: 3px;
 `;
 
 const LabelStyle = styled.label`
   display: inline-block;
   border: 1px solid #333;
+  border-radius: 3px;
   padding: 0.5rem;
   transition: background-color 0.3s;
   cursor: pointer;

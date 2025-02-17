@@ -22,8 +22,6 @@ const AddFeedPage = () => {
           <ActionButton />
           <AddFeedContainer>
             <ImgUpLoad>
-              {/* supabase로 업로드 받으면 미리보기로 이미지 렌더링 보여주는 창 : supabase 연결 후 구현할 예정 */}
-              <img src="" alt="" style={{ width: '300px', height: '300px', backgroundColor: '#bdbdbd' }} />
               <FileInputs />
             </ImgUpLoad>
             <AddFeedFormWrapper>
@@ -41,7 +39,7 @@ const AddFeedPage = () => {
   );
 };
 
-const AddFeedContainer = styled.div`
+export const AddFeedContainer = styled.div`
   height: calc(100vh - 262px);
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, auto));
@@ -51,12 +49,12 @@ const AddFeedContainer = styled.div`
 
 const ImgUpLoad = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-evenly;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
 `;
 
-const AddFeedFormWrapper = styled.div`
+export const AddFeedFormWrapper = styled.div`
   padding: 2rem 0;
   display: flex;
   flex-direction: column;

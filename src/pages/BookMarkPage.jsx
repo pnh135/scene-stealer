@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MOCK_DATA from '../data/MOCK_DATA';
 import { Heart, MessageCircle, Bookmark } from 'lucide-react';
 import {
@@ -14,6 +14,7 @@ import { MainPageContent, MainPageMain, MainPageSideBar } from './MainPage';
 import MainFooter from '../components/MainFooter';
 import ActionButton from '../components/ActionButton';
 import SideBar from '../components/SideBar';
+import styled from 'styled-components';
 
 const BookMarkPage = () => {
   const [bookMarks, setbookMarks] = useState([]);
@@ -30,8 +31,10 @@ const BookMarkPage = () => {
     localStorage.setItem('bookmark', JSON.stringify(updatedbookMarks));
   };
 
+  const navigate = useNavigate();
+
   return (
-    <div>
+    <>
       <MainHeader />
       <MainPageContent>
         <MainPageSideBar>
@@ -39,36 +42,43 @@ const BookMarkPage = () => {
         </MainPageSideBar>
         <MainPageMain>
           <ActionButton />
-          <FeedListWrapper>
-            {bookMarks.length > 0 ? (
-              bookMarks.map((id) => {
-                const item = MOCK_DATA.find((card) => card.id === id);
-                return item ? (
-                  <FeedListContent key={id}>
-                    <FeedListContentTitle>{item.korean_name}</FeedListContentTitle>
-                    <FeedListContentImg src={item.img_url} alt={item.korean_name} />
-                    <FeedListIcon>
-                      <Heart style={{ cursor: 'pointer' }} />
-                      <MessageCircle style={{ cursor: 'pointer' }} />
-                      <Bookmark
-                        onClick={() => {
-                          RemoveBookMark(item.id);
-                        }}
-                        style={{ cursor: 'pointer' }}
-                      />
-                    </FeedListIcon>
-                  </FeedListContent>
-                ) : null;
-              })
-            ) : (
-              <p>북마크를 추가해주세요!</p>
-            )}
-          </FeedListWrapper>
+          <MainFeedList>
+            <FeedListWrapper>
+              {bookMarks.length > 0 ? (
+                bookMarks.map((id) => {
+                  const item = MOCK_DATA.find((card) => card.id === id);
+                  return item ? (
+                    <FeedListContent key={id} onClick={() => navigate(`/main/detail/${item.id}`)}>
+                      <FeedListContentTitle>{item.korean_name}</FeedListContentTitle>
+                      <FeedListContentImg src={item.img_url} alt={item.korean_name} />
+                      <FeedListIcon>
+                        <Heart style={{ cursor: 'pointer' }} />
+                        <MessageCircle style={{ cursor: 'pointer' }} />
+                        <Bookmark
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            RemoveBookMark(item.id);
+                          }}
+                          style={{ cursor: 'pointer' }}
+                        />
+                      </FeedListIcon>
+                    </FeedListContent>
+                  ) : null;
+                })
+              ) : (
+                <p>북마크를 추가해주세요!</p>
+              )}
+            </FeedListWrapper>
+          </MainFeedList>
         </MainPageMain>
       </MainPageContent>
       <MainFooter />
-    </div>
+    </>
   );
 };
+
+const MainFeedList = styled.div`
+  min-height: calc(100vh - 262px);
+`;
 
 export default BookMarkPage;

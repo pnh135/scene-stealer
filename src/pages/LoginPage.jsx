@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import supabase from '../supabase/Client';
 import { useNavigate } from 'react-router-dom';
+import { StdLoginContainer, StdDataInput, StdDataBtn } from '../components/UserDataField';
 
 const LoginPage = () => {
-  const [email, setemail] = useState('');
-  const [password, setpassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const login = async (e) => {
     e.preventDefault();
@@ -18,7 +21,7 @@ const LoginPage = () => {
       if (error) throw error;
 
       alert('로그인 성공!');
-      useNavigate("/main")
+      navigate('/main');
     } catch (error) {
       alert(error.message);
       console.error('로그인 오류:', error);
@@ -26,17 +29,23 @@ const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={login}>
-      <input placeholder="email" type="email" value={email} onChange={(e) => setemail(e.target.value)} required />
-      <input
+    <StdLoginContainer onSubmit={login}>
+      <StdDataInput
+        placeholder="email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <StdDataInput
         placeholder="password"
         type="password"
         value={password}
-        onChange={(e) => setpassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button>로그인</button>
-    </form>
+      <StdDataBtn>로그인</StdDataBtn>
+    </StdLoginContainer>
   );
 };
 
