@@ -15,21 +15,21 @@ const SignUpPage = () => {
       return alert('모든 내용을 입력해 주세요.');
     }
 
-    if (password.length < 6) {
-      return alert('비밀번호는 6글자 이상 이여야 합니다.');
-    }
-
     const textComparison = /^[a-z|A-Z|0-9]+$/;
 
     if (!textComparison.test(userId)) {
       return alert('아이디에는 영어와 숫자만 들어가야 합니다.');
     }
 
-    const { data: user_info } = await supabase.from('user_info').select('*');
-
     if (user_info.find(({ user_id }) => user_id === userId)) {
       return alert('이미 존재하는 아이디 입니다.');
     }
+
+    if (password.length < 6) {
+      return alert('비밀번호는 6글자 이상 이여야 합니다.');
+    }
+
+    const { data: user_info } = await supabase.from('user_info').select('*');
 
     if (user_info.find((e) => e.email === email)) {
       return alert('이미 존재하는 이메일 입니다.');
@@ -48,8 +48,8 @@ const SignUpPage = () => {
     });
     if (error) throw error;
 
-alert('회원가입 완료! 로그인 페이지로 이동합니다!')
-useNavigate("/main/login")
+    alert('회원가입 완료! 로그인 페이지로 이동합니다!');
+    useNavigate('/main/login');
   };
 
   return (
