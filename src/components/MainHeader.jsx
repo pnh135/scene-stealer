@@ -37,12 +37,13 @@ const MainHeader = () => {
 };
 
 const MainPageHeader = styled.header`
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 20px;
   border-bottom: 1px solid #bdbdbd;
+  background-color: white;
 `;
 
 const HeaderLogo = styled.div``;
@@ -50,7 +51,6 @@ const HeaderLogo = styled.div``;
 
 const HeaderSearch = styled.div`
   background-color: white;
-  height: 50px;
   display: flex;
   align-items: center;
   gap: 1rem;
