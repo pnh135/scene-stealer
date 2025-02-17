@@ -22,8 +22,6 @@ const AddFeedPage = () => {
           <ActionButton />
           <AddFeedContainer>
             <ImgUpLoad>
-              {/* supabase로 업로드 받으면 미리보기로 이미지 렌더링 보여주는 창 : supabase 연결 후 구현할 예정 */}
-              <img src="" alt="" style={{ width: '300px', height: '300px', backgroundColor: '#bdbdbd' }} />
               <FileInputs />
             </ImgUpLoad>
             <AddFeedFormWrapper>
@@ -51,9 +49,9 @@ export const AddFeedContainer = styled.div`
 
 const ImgUpLoad = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-evenly;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const AddFeedFormWrapper = styled.div`
