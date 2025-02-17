@@ -48,8 +48,8 @@ const SignUpPage = () => {
     });
     if (error) throw error;
 
-alert('회원가입 완료! 로그인 페이지로 이동합니다!')
-useNavigate("/main/login")
+    alert('회원가입 완료! 로그인 페이지로 이동합니다!');
+    useNavigate('/main/login');
   };
 
   return (
