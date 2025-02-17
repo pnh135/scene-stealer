@@ -2,8 +2,27 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ActionButtonStyle } from './ActionButton';
 import { Search } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import supabase from '../supabase/Client';
 
 const MainHeader = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  useEffect(() => {
+    const getSession = async () => {
+      const {
+        data: { session }
+      } = await supabase.auth.getSession();
+      console.log(session);
+      setIsLogin(session?.user ?? null);
+    };
+    getSession();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setIsLogin(false);
+  };
+
   return (
     <MainPageHeader>
       <HeaderLogo>
@@ -25,12 +44,18 @@ const MainHeader = () => {
         <input type="text" placeholder="Search" style={{ width: '100%', fontSize: '1rem' }}></input>
       </HeaderSearch>
       <HeaderLogin>
-        <Link to="/main/login">
-          <ActionButtonStyle>로그인</ActionButtonStyle>
-        </Link>
-        <Link to="/main/signup">
-          <ActionButtonStyle>회원가입</ActionButtonStyle>
-        </Link>
+        {isLogin ? (
+          <button onClick={handleLogout}>로그아웃</button>
+        ) : (
+          <>
+            <Link to="/main/login">
+              <ActionButtonStyle>로그인</ActionButtonStyle>
+            </Link>
+            <Link to="/main/signup">
+              <ActionButtonStyle>회원가입</ActionButtonStyle>
+            </Link>
+          </>
+        )}
       </HeaderLogin>
     </MainPageHeader>
   );
