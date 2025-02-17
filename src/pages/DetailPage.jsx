@@ -1,104 +1,113 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import MOCK_DATA from '../data/MOCK_DATA';
 import { Bookmark, Heart } from 'lucide-react';
+import MainHeader from '../components/MainHeader';
+import { MainPageContent, MainPageMain, MainPageSideBar } from './MainPage';
+import SideBar from '../components/SideBar';
+import ActionButton from '../components/ActionButton';
+import MainFooter from '../components/MainFooter';
+import { AddFeedContainer, AddFeedFormWrapper } from './AddFeedPage';
 
 const DetailPage = () => {
   const { id } = useParams();
-  const movie = MOCK_DATA.find((p) => p.id === Number(id));
+  const card = MOCK_DATA.find((p) => p.id === Number(id));
 
   return (
     <>
-      <Link to="/main">뒤로가기</Link> {/*뒤로가기 아이콘 넣기*/}
-      <StdFeedContainer className="feed-container">
-        <StdImageContainer>
-          <StdImage src={movie.img_url} />
-        </StdImageContainer>
-        <StdFeedDetail className="detail">
-          <StdFeedHeader className="detail-head">
-            <StdProfile
-              className="icon"
-              src="https://i.pinimg.com/736x/a8/7e/e9/a87ee992d0b9e196edf8211bbc799521.jpg"
-            />
-            <StdBookmark>
-              <Bookmark />
-            </StdBookmark>
-            <StdBookmark>
-              <Heart />
-            </StdBookmark>
-          </StdFeedHeader>
-          <div>{movie.korean_name}</div>
-          <div className="hash-tag">
-            <span>#해시태그</span>
-          </div>
-          <div className="star">★★★</div>
-          <ul className="comment-list">
-            <li>user: 퍼가요~</li>
-            <li>user: 퍼가요~</li>
-            <li>user: 퍼가요~</li>
-          </ul>
-          <input placeholder="add a comment" />
-        </StdFeedDetail>
-      </StdFeedContainer>
+      <MainHeader />
+      <MainPageContent>
+        <MainPageSideBar>
+          <SideBar />
+        </MainPageSideBar>
+        <MainPageMain>
+          <ActionButton />
+          <DetailFeedContainer>
+            <DetailFeedImg src={card.img_url} />
+            <DetailFeedContent>
+              <ProfileIcon>
+                <ProfileStyle />
+                <BookmarkHeart>
+                  <Heart />
+                  <Bookmark />
+                </BookmarkHeart>
+              </ProfileIcon>
+
+              <TitleHashTag>
+                <div>{card.korean_name}</div>
+                <span>#해시태그</span>
+              </TitleHashTag>
+
+              <CommentListStyle>
+                <CommentList>user : 퍼가요 ~</CommentList>
+                <CommentList>user : 퍼가요 ~</CommentList>
+                <CommentList>user : 퍼가요 ~</CommentList>
+              </CommentListStyle>
+
+              <CommentInput>
+                <input placeholder="댓글을 입력하세요." style={{ width: '100%', height: '30px', margin: '1rem 0' }} />
+              </CommentInput>
+            </DetailFeedContent>
+          </DetailFeedContainer>
+        </MainPageMain>
+      </MainPageContent>
+      <MainFooter />
     </>
   );
 };
 
+const DetailFeedContainer = styled(AddFeedContainer)``;
+
+const DetailFeedImg = styled.img`
+  width: 320px;
+  border-radius: 1rem;
+`;
+
+const DetailFeedContent = styled(AddFeedFormWrapper)`
+  background-color: #f0f0f0;
+  border-radius: 1rem;
+  padding: 1rem;
+  justify-content: space-around;
+`;
+
+const ProfileIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const ProfileStyle = styled.img`
+  background-color: #bdbdbd;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+`;
+
+const BookmarkHeart = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
+const TitleHashTag = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+`;
+
+const CommentListStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const CommentList = styled.div``;
+
+const CommentInput = styled.div`
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+`;
+
 export default DetailPage;
-
-const StdFeedContainer = styled.div`
-  display: grid;
-  text-align: center;
-  grid-template-columns: repeat(2, minmax(100px, auto));
-  gap: 5%;
-  max-width: 100%;
-  justify-content: center;
-  background-color: yellow;
-`;
-
-const StdFeedDetail = styled.div`
-  display: grid;
-  min-width: 40vw;
-  min-height: 50%;
-  position: relative;
-  background-color: orange;
-  margin: 5%;
-  border-radius: 10%;
-  overflow: hidden;
-`;
-
-const StdProfile = styled.img`
-  max-width: 50px;
-  max-height: 50px;
-  background-image: cover;
-  border-radius: 100%;
-`;
-
-const StdBookmark = styled.div`
-  max-width: 30%;
-  max-height: 30%;
-`;
-
-const StdImageContainer = styled.div`
-  display: flex;
-  min-width: 40vw;
-  min-height: 50%;
-  background-color: green;
-  border-radius: 10%;
-  overflow: hidden;
-`;
-
-const StdImage = styled.img`
-  width: 100%;
-`;
-
-const StdFeedHeader = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-height: min-content;
-  flex: 3 0 0;
-  gap: 10%;
-  background-color: palegreen;
-  border-bottom: dashed 2px;
-`;
