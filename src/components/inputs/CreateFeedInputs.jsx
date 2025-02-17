@@ -1,61 +1,13 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
-const CreateFeedInputs = () => {
-  const [createFeedInput, setCreateFeedInput] = useState({
-    feedTitle: '',
-    contentTitle: '',
-    tagsArray: [],
-    tagInput: ''
-  });
-
-  const [errorMessage, setErrorMessage] = useState(''); // 에러 메시지 상태 추가
-
-  const handleCreateFeedChange = (e) => {
-    const { name, value } = e.target;
-    setCreateFeedInput((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const addTag = (newTag) => {
-    if (!newTag.trim()) return;
-
-    if (createFeedInput.tagsArray.includes(newTag)) {
-      setErrorMessage('이미 추가한 태그입니다.'); // 중복 태그 추가 방지
-      return;
-    }
-
-    if (createFeedInput.tagsArray.length >= 3) {
-      setErrorMessage('해시태그는 최대 3개입니다.'); // 태그 개수 제한 메시지
-      return;
-    }
-
-    setCreateFeedInput((prev) => ({
-      ...prev,
-      tagsArray: [...prev.tagsArray, newTag],
-      tagInput: ''
-    }));
-
-    setErrorMessage(''); // 정상 입력 시 에러 메시지 초기화
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      addTag(createFeedInput.tagInput);
-    }
-  };
-
-  const removeTag = (index) => {
-    setCreateFeedInput((prev) => ({
-      ...prev,
-      tagsArray: prev.tagsArray.filter((_, i) => i !== index)
-    }));
-    setErrorMessage(''); // 태그 삭제 시 에러 메시지도 초기화
-  };
-
+const CreateFeedInputs = ({
+  createFeedInput,
+  handleCreateFeedChange,
+  setCreateFeedInput,
+  handleKeyDown,
+  removeTag,
+  errorMessage
+}) => {
   return (
     <>
       <CreatInputsForm action="">
