@@ -1,52 +1,48 @@
 import styled from 'styled-components';
-import SideBar from '../components/SideBar';
+import SideBar, { SideBarWrapper } from '../components/SideBar';
 import MainHeader from '../components/MainHeader';
 import FeedList from '../components/FeedList';
 import MainFooter from '../components/MainFooter';
 
 const MainPage = () => {
   return (
-    <MainPageContainer>
-      <MainPageWrapper>
-        <MainHeader />
-        <MainPageContent>
-          <MainPageAside>
-            <SideBar />
-          </MainPageAside>
-          <MainPageMain>
-            <FeedList />
-          </MainPageMain>
-        </MainPageContent>
-        <MainFooter />
-      </MainPageWrapper>
-    </MainPageContainer>
+    <MainPageWrapper>
+      <MainHeader />
+      <MainPageContent>
+        <MainPageSideBar>
+          <SideBar />
+        </MainPageSideBar>
+        <MainPageMain>
+          <FeedList />
+        </MainPageMain>
+      </MainPageContent>
+      <MainFooter />
+    </MainPageWrapper>
   );
 };
 
-const MainPageContainer = styled.main`
+const MainPageWrapper = styled.main`
   margin: 0 auto;
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-`;
-
-const MainPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: center;
+  overflow: hidden;
 `;
 
 export const MainPageContent = styled.div`
+  width: 100%;
   display: flex;
   justify-content: flex-start;
-  padding: 20px;
 `;
 
-export const MainPageAside = styled.aside`
+export const MainPageSideBar = styled(SideBarWrapper)`
   border-right: 1px solid #bdbdbd;
+  padding: 2rem;
 `;
 
 export const MainPageMain = styled.div`
   flex: 1;
+  padding: 1.5rem;
 `;
 
 export default MainPage;
