@@ -5,8 +5,10 @@ import supabase from '../supabase/Client';
 const SignUpPage = () => {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setname] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -48,8 +50,8 @@ const SignUpPage = () => {
     });
     if (error) throw error;
 
-alert('회원가입 완료! 로그인 페이지로 이동합니다!')
-useNavigate("/main/login")
+    alert('회원가입 완료! 로그인 페이지로 이동합니다!');
+    navigate('/main/login');
   };
 
   return (
@@ -66,7 +68,7 @@ useNavigate("/main/login")
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <input placeholder="이름을 입력해 주세요." type="text" value={name} onChange={(e) => setname(e.target.value)} />
+      <input placeholder="이름을 입력해 주세요." type="text" value={name} onChange={(e) => setName(e.target.value)} />
       <input
         placeholder="이메일을 입력해 주세요."
         type="email"
