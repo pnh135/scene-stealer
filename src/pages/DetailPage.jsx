@@ -7,7 +7,7 @@ import { MainPageContent, MainPageMain, MainPageSideBar } from './MainPage';
 import SideBar from '../components/SideBar';
 import ActionButton from '../components/ActionButton';
 import MainFooter from '../components/MainFooter';
-import { AddFeedContainer, AddFeedFormWrapper } from './AddFeedPage';
+import { AddFeedContainer, AddFeedFormWrapper } from '../components/inputs/AddFeedContainer';
 
 const DetailPage = () => {
   const { id } = useParams();
