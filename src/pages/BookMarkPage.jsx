@@ -75,7 +75,6 @@ const BookMarkPage = () => {
 };
 
 const MainFeedList = styled.div`
-  background-color: red;
   min-height: calc(100vh - 262px);
 `;
 
