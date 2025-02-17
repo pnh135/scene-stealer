@@ -70,7 +70,7 @@ const FileInputs = () => {
   );
 };
 
-
+// 스타일링 코드
 const PreviewContainer = styled.div`
   width: 300px;
   height: 300px;
@@ -87,7 +87,7 @@ const PreviewImage = styled.img`
 `;
 
 const EmptyPreview = styled.div`
-  color: #888888;
+  color: #888;
 `;
 
 const FileInputStyle = styled.div`
