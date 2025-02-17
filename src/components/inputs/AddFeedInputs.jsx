@@ -5,6 +5,7 @@ const AddFeedInputs = () => {
     const [createFeedInput, setCreateFeedInput] = useState({
         feedTitle: "",
         contentTitle: "",
+        selectCategory: "카테고리 선택",
     });
 
     // const [errorMessage, setErrorMessage] = useState(""); // 에러 메시지 상태 추가
@@ -28,7 +29,6 @@ const AddFeedInputs = () => {
                     onChange={handleCreateFeedChange}
                     placeholder="제목"
                 />
-
                 <AllInput
                     type="text"
                     name="contentTitle"
@@ -36,10 +36,24 @@ const AddFeedInputs = () => {
                     onChange={handleCreateFeedChange}
                     placeholder="드라마 / 영화 이름"
                 />
+                <SelectBox 
+                    name="selectCategory"
+                    value={createFeedInput.selectCategory} 
+                    onChange={handleCreateFeedChange}
+                >
+                    <option value="카테고리 선택" disabled>카테고리 선택</option>
+                    <option value="드라마">드라마</option>
+                    <option value="영화">영화</option>
+                    <option value="애니메이션">애니메이션</option>
+                    <option value="예능">예능</option>
+                    <option value="다큐멘터리">다큐멘터리</option>
+                    <option value="기타">기타</option>
+                </SelectBox>
             </CreatInputsForm>
         </div>
     );
 };
+
 
 
 const CreatInputsForm = styled.form`
@@ -70,6 +84,21 @@ const AllInput = styled.input`
     &::placeholder {
         color: #aaa;
     }
+
+    &:focus {
+        border-color: #7fc1ff;
+        outline: none;
+    }
+`;
+
+const SelectBox = styled.select`
+    background-color: #f0f0f0;
+    width: 10rem;
+    padding: 10px;
+    border-radius: 11px;
+    border-style: solid;
+    border-width: 2px;
+    font-size: 16px;
 
     &:focus {
         border-color: #7fc1ff;
