@@ -5,7 +5,7 @@ import MainHeader from '../components/MainHeader';
 import MainFooter from '../components/MainFooter';
 import { MainPageContent, MainPageMain, MainPageSideBar } from './MainPage';
 import SideBar from '../components/SideBar';
-import ActionButton from '../components/ActionButton';
+import ActionButton, { ActionButtonStyle } from '../components/ActionButton';
 
 const AddFeedPage = () => {
   // "취소" 버튼 클릭 시, 새로 고침으로 인해 폼 리셋
@@ -20,21 +20,20 @@ const AddFeedPage = () => {
         </MainPageSideBar>
         <MainPageMain>
           <ActionButton />
-          <StdInputContainer>
-            <div>
+          <AddFeedContainer>
+            <ImgUpLoad>
               <FileInputs />
-              {/* supabase로 업로드 받으면 미리보기로 이미지 렌더링 보여주는 창 
-          supabase 연결 후 구현*/}
-              <img src="" alt="..." />
-            </div>
-            <div>
+              {/* supabase로 업로드 받으면 미리보기로 이미지 렌더링 보여주는 창 : supabase 연결 후 구현할 예정 */}
+              <img src="" alt="" />
+            </ImgUpLoad>
+            <AddFeedFormWrapper>
               <CreateFeedInputs />
-              <StdBtnWrapper>
-                <StdBtn onClick={resetForm}>취소</StdBtn>
-                <StdBtn>게시</StdBtn>
-              </StdBtnWrapper>
-            </div>
-          </StdInputContainer>
+              <CancelPostButton>
+                <ButtonStyle onClick={resetForm}>취소</ButtonStyle>
+                <ButtonStyle>게시</ButtonStyle>
+              </CancelPostButton>
+            </AddFeedFormWrapper>
+          </AddFeedContainer>
         </MainPageMain>
       </MainPageContent>
       <MainFooter />
@@ -42,27 +41,31 @@ const AddFeedPage = () => {
   );
 };
 
-const StdInputContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, minmax(100px, auto));
+const AddFeedContainer = styled.div`
+  /* display: grid;
+  grid-template-columns: repeat(2, minmax(300px, auto)); */
   background-color: orange;
   justify-content: center;
 `;
 
-const StdBtn = styled.button`
-  background-color: red;
-  color: white;
-  width: 100px;
-  border-radius: 10px;
-  text-align: center;
-`;
+const ImgUpLoad = styled.div``;
 
-const StdBtnWrapper = styled.div`
+const AddFeedFormWrapper = styled.div``;
+
+const CancelPostButton = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(100px, auto));
   gap: 20%;
   background-color: palevioletred;
   justify-content: center;
+`;
+
+const ButtonStyle = styled(ActionButtonStyle)`
+  /* background-color: red;
+  color: white;
+  width: 100px;
+  border-radius: 10px;
+  text-align: center; */
 `;
 
 export default AddFeedPage;

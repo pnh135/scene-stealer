@@ -28,8 +28,6 @@ const FileInputs = () => {
   );
 };
 
-export default FileInputs;
-
 const StdFileInput = styled.input`
   display: inline-block;
   width: 40%;
@@ -50,3 +48,5 @@ const StdLabel = styled.label`
   height: 40px;
   margin-left: 10px;
 `;
+
+export default FileInputs;
