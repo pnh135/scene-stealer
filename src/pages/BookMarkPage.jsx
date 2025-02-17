@@ -32,7 +32,7 @@ const BookMarkPage = () => {
   };
 
   return (
-    <div>
+    <>
       <MainHeader />
       <MainPageContent>
         <MainPageSideBar>
@@ -70,7 +70,7 @@ const BookMarkPage = () => {
         </MainPageMain>
       </MainPageContent>
       <MainFooter />
-    </div>
+    </>
   );
 };
 
