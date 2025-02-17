@@ -52,6 +52,7 @@ export const FeedListContent = styled.div`
   border-radius: 1rem;
   background-color: #f4f4f4;
   padding: 1.2rem;
+  cursor: pointer;
 `;
 
 export const FeedListContentTitle = styled.p`

@@ -48,14 +48,15 @@ const BookMarkPage = () => {
                 bookMarks.map((id) => {
                   const item = MOCK_DATA.find((card) => card.id === id);
                   return item ? (
-                    <FeedListContent key={id}>
+                    <FeedListContent key={id} onClick={() => navigate(`/main/detail/${item.id}`)}>
                       <FeedListContentTitle>{item.korean_name}</FeedListContentTitle>
                       <FeedListContentImg src={item.img_url} alt={item.korean_name} />
                       <FeedListIcon>
                         <Heart style={{ cursor: 'pointer' }} />
                         <MessageCircle style={{ cursor: 'pointer' }} />
                         <Bookmark
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.stopPropagation();
                             RemoveBookMark(item.id);
                           }}
                           style={{ cursor: 'pointer' }}
