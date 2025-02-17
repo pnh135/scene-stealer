@@ -9,31 +9,13 @@ const SideBar = () => {
   const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
   const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
 
-  // 기존 로직
-  // const handleAlertModal = () => {
-  //   if (isAlertModalOpen === true) {
-  //     setIsAlertModalOpen(false);
-  //   }
-
-  //   setIsSettingModalOpen(!isSettingModalOpen);
-  // };
-
-  // const handleSettingModal = () => {
-  //   if (isSettingModalOpen === true) {
-  //     setIsSettingModalOpen(false);
-  //   }
-
-  //   setIsAlertModalOpen(!isAlertModalOpen);
-  // };
-
-  // 수정 로직
   const handleAlertModal = () => {
     setIsAlertModalOpen(true);
-    setIsSettingModalOpen(false); // 설정 모달 닫기
+    setIsSettingModalOpen(false);
   };
 
   const handleSettingModal = () => {
-    setIsAlertModalOpen(false); // 알림 모달 닫기
+    setIsAlertModalOpen(false);
     setIsSettingModalOpen(true);
   };
 
@@ -60,11 +42,6 @@ const SideBar = () => {
       <SideBarButton onClick={handleSettingModal}>
         <Settings />
       </SideBarButton>
-      {/* 기존 로직 */}
-      {/* <AlertModal isAlertModalOpen={isAlertModalOpen} handleSettingModal={handleSettingModal} />
-      <SettingModal isSettingModalOpen={isSettingModalOpen} handleAlertModal={handleAlertModal} /> */}
-
-      {/* 수정 로직 */}
       <AlertModal isOpen={isAlertModalOpen} onClose={handleCloseModal} />
       <SettingModal isOpen={isSettingModalOpen} onClose={handleCloseModal} />
     </SideBarWrapper>
