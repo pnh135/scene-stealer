@@ -7,6 +7,7 @@ import supabase from '../supabase/Client';
 
 const MainHeader = () => {
   const [isLogin, setIsLogin] = useState(false);
+  
   useEffect(() => {
     const getSession = async () => {
       const {
@@ -25,7 +26,7 @@ const MainHeader = () => {
 
   return (
     <MainPageHeader>
-      <HeaderLogo>
+      <>
         <Link to="/">
           <img
             src="https://velog.velcdn.com/images/_young/post/dc9091d0-65fa-411a-94d1-3471b80eec5b/image.png"
@@ -38,7 +39,7 @@ const MainHeader = () => {
             }}
           />
         </Link>
-      </HeaderLogo>
+      </>
       <HeaderSearch>
         <Search />
         <input type="text" placeholder="Search" style={{ width: '100%', fontSize: '1rem' }}></input>
@@ -61,7 +62,7 @@ const MainHeader = () => {
   );
 };
 
-const MainPageHeader = styled.header`
+export const MainPageHeader = styled.header`
   height: 100px;
   display: flex;
   align-items: center;
@@ -70,9 +71,6 @@ const MainPageHeader = styled.header`
   border-bottom: 1px solid #bdbdbd;
   background-color: white;
 `;
-
-const HeaderLogo = styled.div``;
-// 로고 전달 받으면 수정할 수도 있을 것 같아서 남겨둡니다.
 
 const HeaderSearch = styled.div`
   background-color: white;
