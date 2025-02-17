@@ -1,32 +1,65 @@
-import { useRef, useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
+import supabase from "../../supabase/Client";
 
 const FileInputs = () => {
-  // 업로드하는 파일의 path값 반환
-  const fileText = () => {
-    if (img_ref.current.value !== '') {
-      const fileName = img_ref.current.value;
-      setPlaceholder(fileName);
-    } else {
-      // 데이터 오류
-      console.log('파일 데이터 오류.');
-    }
-  };
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [imageUrl, setImageUrl] = useState("");
+    const [placeholder, setPlaceholder] = useState("첨부파일");
 
-  const img_ref = useRef(null);
+    const bucketName = "news_feeds_image"; // Supabase Storage 버킷명
 
-  // 업로드 하지 않을 때 첨부파일로 보이게 하는 초기값
-  const [placeholder, setPlaceholder] = useState('첨부파일');
+    // 파일 선택 시 자동 업로드
+    const handleFileChange = async (e) => {
+        if (e.target.files.length > 0) {
+            const file = e.target.files[0];
+            setSelectedFile(file);
+            setPlaceholder(file.name); // UI 업데이트
 
-  return (
-    <>
-      <FileInputStyle className="filebox">
-        <FileInput className="upload-name" placeholder={placeholder} disabled />
-        <LabelStyle htmlFor="file">파일찾기</LabelStyle>
-        <input type="file" id="file" accept=".png,.jpg, .jpeg" ref={img_ref} onChange={fileText} />
-      </FileInputStyle>
-    </>
-  );
+            // 자동 업로드 실행
+            await handleStorageUpload(file);
+        }
+    };
+
+    // 이미지 업로드 함수
+    const handleStorageUpload = async (file) => {
+        if (!file) {
+            alert("이미지를 선택하세요.");
+            return;
+        }
+
+        const fileName = `${Date.now()}_${file.name}`; // 고유한 파일명 생성
+
+        // Supabase Storage에 업로드
+        const { error } = await supabase.storage.from(bucketName).upload(fileName, file);
+
+        if (error) {
+            console.error("이미지 업로드 오류:", error.message);
+            alert("업로드 실패");
+            return;
+        }
+
+        // 업로드된 이미지의 URL 가져오기
+        const { data: publicUrlData } = supabase.storage.from(bucketName).getPublicUrl(fileName);
+        setImageUrl(publicUrlData.publicUrl);
+    };
+
+    return (
+        <>
+            <FileInputStyle className="filebox">
+                <FileInput className="upload-name" placeholder={placeholder} disabled />
+                <LabelStyle htmlFor="file">파일찾기</LabelStyle>
+                <input type="file" id="file" accept=".png,.jpg,.jpeg" onChange={handleFileChange} />
+            </FileInputStyle>
+
+            {imageUrl && (
+                <div>
+                    <h3>업로드된 이미지</h3>
+                    <img src={imageUrl} alt="Uploaded" width={200} />
+                </div>
+            )}
+        </>
+    );
 };
 
 const FileInputStyle = styled.div`
