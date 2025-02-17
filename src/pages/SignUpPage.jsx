@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import supabase from '../supabase/Client';
 
 const SignUpPage = () => {
@@ -35,21 +35,22 @@ const SignUpPage = () => {
       return alert('이미 존재하는 이메일 입니다.');
     }
 
-    const { data, error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: {
           user_id: userId,
           name,
-          email
+          email,
+          password
         }
       }
     });
     if (error) throw error;
 
 alert('회원가입 완료! 로그인 페이지로 이동합니다!')
-Navigate("/main/login")
+useNavigate("/main/login")
   };
 
   return (
