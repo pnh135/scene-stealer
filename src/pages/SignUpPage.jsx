@@ -42,8 +42,7 @@ const SignUpPage = () => {
         data: {
           user_id: userId,
           name,
-          email,
-          password
+          email
         }
       }
     });
