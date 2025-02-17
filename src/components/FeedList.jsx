@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import MOCK_DATA from '../data/MOCK_DATA';
 import styled from 'styled-components';
 import { Heart, MessageCircle, Bookmark } from 'lucide-react';
@@ -19,18 +20,20 @@ const FeedList = () => {
     <FeedListWrapper>
       {MOCK_DATA.map((card) => (
         <FeedListContent key={card.id}>
-          <FeedListContentTitle>{card.korean_name}</FeedListContentTitle>
-          <FeedListContentImg src={card.img_url} alt={card.korean_name} />
-          <FeedListIcon>
-            <Heart style={{ cursor: 'pointer' }} />
-            <MessageCircle style={{ cursor: 'pointer' }} />
-            <Bookmark
-              onClick={() => {
-                addBookMark(card.id);
-              }}
-              style={{ cursor: 'pointer' }}
-            />
-          </FeedListIcon>
+          <Link to={`/main/detail/${card.id}`}>
+            <FeedListContentTitle>{card.korean_name}</FeedListContentTitle>
+            <FeedListContentImg src={card.img_url} alt={card.korean_name} />
+            <FeedListIcon>
+              <Heart style={{ cursor: 'pointer' }} />
+              <MessageCircle style={{ cursor: 'pointer' }} />
+              <Bookmark
+                onClick={() => {
+                  addBookMark(card.id);
+                }}
+                style={{ cursor: 'pointer' }}
+              />
+            </FeedListIcon>
+          </Link>
         </FeedListContent>
       ))}
     </FeedListWrapper>
@@ -60,6 +63,7 @@ export const FeedListContentTitle = styled.p`
 `;
 
 export const FeedListContentImg = styled.img`
+  width: 100%;
   height: 200px;
   display: flex;
   align-items: center;
