@@ -5,7 +5,6 @@ const AddFeedInputs = () => {
     const [createFeedInput, setCreateFeedInput] = useState({
         feedTitle: "",
         contentTitle: "",
-        tagInput: "",
     });
 
     // const [errorMessage, setErrorMessage] = useState(""); // 에러 메시지 상태 추가
