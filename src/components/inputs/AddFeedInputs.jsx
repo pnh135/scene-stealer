@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const CreateFeedInputs = () => {
+const AddFeedInputs = () => {
     const [createFeedInput, setCreateFeedInput] = useState({
         feedTitle: "",
         contentTitle: "",
@@ -78,4 +78,4 @@ const AllInput = styled.input`
     }
 `;
 
-export default CreateFeedInputs;
+export default AddFeedInputs;
