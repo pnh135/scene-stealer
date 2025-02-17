@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MOCK_DATA from '../data/MOCK_DATA';
 import styled from 'styled-components';
 import { Heart, MessageCircle, Bookmark } from 'lucide-react';
 
 const FeedList = () => {
+  const navigate = useNavigate();
   const addBookMark = (id) => {
     const currentBookMarks = JSON.parse(localStorage.getItem('bookmark')) || [];
 
@@ -19,21 +20,20 @@ const FeedList = () => {
   return (
     <FeedListWrapper>
       {MOCK_DATA.map((card) => (
-        <FeedListContent key={card.id}>
-          <Link to={`/main/detail/${card.id}`}>
-            <FeedListContentTitle>{card.korean_name}</FeedListContentTitle>
-            <FeedListContentImg src={card.img_url} alt={card.korean_name} />
-            <FeedListIcon>
-              <Heart style={{ cursor: 'pointer' }} />
-              <MessageCircle style={{ cursor: 'pointer' }} />
-              <Bookmark
-                onClick={() => {
-                  addBookMark(card.id);
-                }}
-                style={{ cursor: 'pointer' }}
-              />
-            </FeedListIcon>
-          </Link>
+        <FeedListContent key={card.id} onClick={() => navigate(`/main/detail/${card.id}`)}>
+          <FeedListContentTitle>{card.korean_name}</FeedListContentTitle>
+          <FeedListContentImg src={card.img_url} alt={card.korean_name} />
+          <FeedListIcon>
+            <Heart style={{ cursor: 'pointer' }} />
+            <MessageCircle style={{ cursor: 'pointer' }} />
+            <Bookmark
+              onClick={(e) => {
+                e.stopPropagation();
+                addBookMark(card.id);
+              }}
+              style={{ cursor: 'pointer' }}
+            />
+          </FeedListIcon>
         </FeedListContent>
       ))}
     </FeedListWrapper>

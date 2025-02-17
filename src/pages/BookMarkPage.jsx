@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MOCK_DATA from '../data/MOCK_DATA';
 import { Heart, MessageCircle, Bookmark } from 'lucide-react';
 import {
@@ -30,6 +30,8 @@ const BookMarkPage = () => {
     setbookMarks(updatedbookMarks);
     localStorage.setItem('bookmark', JSON.stringify(updatedbookMarks));
   };
+
+  const navigate = useNavigate();
 
   return (
     <>

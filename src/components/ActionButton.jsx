@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ActionButton = () => {
-  const handleBack = () => {
-    window.history.back();
-  };
-
-  return <HandleBackStyle onClick={handleBack}>뒤로 가기</HandleBackStyle>;
+  return (
+    <Link to="/main">
+      <HandleBackStyle>뒤로 가기</HandleBackStyle>
+    </Link>
+  );
 };
 
 export const ActionButtonStyle = styled.button`
