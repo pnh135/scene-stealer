@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MOCK_DATA from '../data/MOCK_DATA';
 import { Heart, MessageCircle, Bookmark } from 'lucide-react';
 import {
@@ -31,6 +31,8 @@ const BookMarkPage = () => {
     localStorage.setItem('bookmark', JSON.stringify(updatedbookMarks));
   };
 
+  const navigate = useNavigate();
+
   return (
     <>
       <MainHeader />
@@ -46,14 +48,15 @@ const BookMarkPage = () => {
                 bookMarks.map((id) => {
                   const item = MOCK_DATA.find((card) => card.id === id);
                   return item ? (
-                    <FeedListContent key={id}>
+                    <FeedListContent key={id} onClick={() => navigate(`/main/detail/${item.id}`)}>
                       <FeedListContentTitle>{item.korean_name}</FeedListContentTitle>
                       <FeedListContentImg src={item.img_url} alt={item.korean_name} />
                       <FeedListIcon>
                         <Heart style={{ cursor: 'pointer' }} />
                         <MessageCircle style={{ cursor: 'pointer' }} />
                         <Bookmark
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.stopPropagation();
                             RemoveBookMark(item.id);
                           }}
                           style={{ cursor: 'pointer' }}
