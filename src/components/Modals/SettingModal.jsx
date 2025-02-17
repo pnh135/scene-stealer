@@ -1,9 +1,11 @@
+import SettingPage from '../../pages/SettingPage';
 import DefaultModal from '../Modals/DefaultModal';
 
 const SettingModal = ({ isOpen, onClose }) => {
   return (
     <DefaultModal isOpen={isOpen} onClose={onClose}>
-      설정
+      <p>설정</p>
+      <SettingPage />
     </DefaultModal>
   );
 };
