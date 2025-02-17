@@ -5,7 +5,6 @@ const CreateFeedInputs = () => {
     const [createFeedInput, setCreateFeedInput] = useState({
         feedTitle: "",
         contentTitle: "",
-        tagsArray: [],
         tagInput: "",
     });
 
