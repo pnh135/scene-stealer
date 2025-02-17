@@ -37,7 +37,6 @@ const CreateFeedInputs = () => {
                     onChange={handleCreateFeedChange}
                     placeholder="드라마 / 영화 이름"
                 />
-
             </CreatInputsForm>
         </div>
     );
