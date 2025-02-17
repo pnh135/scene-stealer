@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MOCK_DATA from '../data/MOCK_DATA';
 import { Heart, MessageCircle, Bookmark } from 'lucide-react';
 import {
@@ -45,18 +45,20 @@ const BookMarkPage = () => {
                 const item = MOCK_DATA.find((card) => card.id === id);
                 return item ? (
                   <FeedListContent key={id}>
-                    <FeedListContentTitle>{item.korean_name}</FeedListContentTitle>
-                    <FeedListContentImg src={item.img_url} alt={item.korean_name} />
-                    <FeedListIcon>
-                      <Heart style={{ cursor: 'pointer' }} />
-                      <MessageCircle style={{ cursor: 'pointer' }} />
-                      <Bookmark
-                        onClick={() => {
-                          RemoveBookMark(item.id);
-                        }}
-                        style={{ cursor: 'pointer' }}
-                      />
-                    </FeedListIcon>
+                    <Link to={`/main/detail/${item.id}`}>
+                      <FeedListContentTitle>{item.korean_name}</FeedListContentTitle>
+                      <FeedListContentImg src={item.img_url} alt={item.korean_name} />
+                      <FeedListIcon>
+                        <Heart style={{ cursor: 'pointer' }} />
+                        <MessageCircle style={{ cursor: 'pointer' }} />
+                        <Bookmark
+                          onClick={() => {
+                            RemoveBookMark(item.id);
+                          }}
+                          style={{ cursor: 'pointer' }}
+                        />
+                      </FeedListIcon>
+                    </Link>
                   </FeedListContent>
                 ) : null;
               })
