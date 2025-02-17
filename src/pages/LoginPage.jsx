@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import supabase from '../supabase/Client';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
-  const login = async () => {
+  const login = async (e) => {
     e.preventDefault();
 
     try {
@@ -17,6 +18,7 @@ const LoginPage = () => {
       if (error) throw error;
 
       alert('로그인 성공!');
+      useNavigate("/main")
     } catch (error) {
       alert(error.message);
       console.error('로그인 오류:', error);
