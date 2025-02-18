@@ -24,30 +24,24 @@ const SignUpPage = () => {
       return alert('아이디에는 영어와 숫자만 들어가야 합니다.');
     }
 
-    if (user_info.find(({ user_id }) => user_id === userId)) {
-      return alert('이미 존재하는 아이디 입니다.');
-    }
+    // if (user_info.find(({ user_id }) => user_id === userId)) {
+    //   return alert('이미 존재하는 아이디 입니다.');
+    // }
 
     if (password.length < 6) {
       return alert('비밀번호는 6글자 이상 이여야 합니다.');
     }
 
-    const { data: user_info } = await supabase.from('user_info').select('*');
+    // const { data: user_info } = await supabase.from('user_info').select('*');
 
-    if (user_info.find((e) => e.email === email)) {
-      return alert('이미 존재하는 이메일 입니다.');
-    }
+    // if (user_info.find((e) => e.email === email)) {
+    //   return alert('이미 존재하는 이메일 입니다.');
+    // }
 
+    console.log(userId, name, email, password);
     const { error } = await supabase.auth.signUp({
       email,
-      password,
-      options: {
-        data: {
-          user_id: userId,
-          name,
-          email
-        }
-      }
+      password
     });
     if (error) throw error;
 

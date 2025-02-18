@@ -2,12 +2,11 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import supabase from '../../supabase/Client';
 
-const FileInputs = () => {
+const FileInputs = ({ imageUrl, setImageUrl }) => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
-  const [placeholder, setPlaceholder] = useState("첨부파일");
+  const [placeholder, setPlaceholder] = useState('첨부파일');
 
-  const bucketName = "news_feeds_image"; // Supabase Storage 버킷명
+  const bucketName = 'news_feeds_image'; // Supabase Storage 버킷명
 
   // 파일 선택 시 미리보기 및 업로드 실행
   const handleFileChange = async (e) => {
@@ -24,7 +23,7 @@ const FileInputs = () => {
   // 이미지 업로드 함수
   const handleStorageUpload = async (file) => {
     if (!file) {
-      alert("이미지를 선택하세요.");
+      alert('이미지를 선택하세요.');
       return;
     }
 
@@ -34,8 +33,8 @@ const FileInputs = () => {
     const { error } = await supabase.storage.from(bucketName).upload(fileName, file);
 
     if (error) {
-      console.error("이미지 업로드 오류:", error.message);
-      alert("업로드 실패");
+      console.error('이미지 업로드 오류:', error.message);
+      alert('업로드 실패');
       return;
     }
 

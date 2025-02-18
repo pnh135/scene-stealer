@@ -8,10 +8,26 @@ import SideBar from '../components/SideBar';
 import ActionButton from '../components/ActionButton';
 import MainFooter from '../components/MainFooter';
 import { AddFeedContainer, AddFeedFormWrapper } from '../components/inputs/AddFeedContainer';
+import { useEffect, useState } from 'react';
+import supabase from '../supabase/Client';
 
 const DetailPage = () => {
+  const [detailData, setDetailData] = useState(null);
+
   const { id } = useParams();
-  const card = MOCK_DATA.find((p) => p.id === Number(id));
+
+  useEffect(() => {
+    const fetchDetailData = async () => {
+      const { data } = await supabase.from('news_feeds').select().eq('id', id).single();
+      setDetailData(data);
+      console.log(data);
+    };
+    fetchDetailData();
+  }, [id]);
+
+  if (detailData === null) {
+    return <div>로딩중</div>;
+  }
 
   return (
     <>
@@ -23,7 +39,7 @@ const DetailPage = () => {
         <MainPageMain>
           <ActionButton />
           <DetailFeedContainer>
-            <DetailFeedImg src={card.img_url} />
+            <DetailFeedImg src={detailData.img_url} />
             <DetailFeedContent>
               <ProfileIcon>
                 <ProfileStyle />
@@ -34,7 +50,7 @@ const DetailPage = () => {
               </ProfileIcon>
 
               <TitleHashTag>
-                <div>{card.korean_name}</div>
+                <div>{detailData.title}</div>
                 <span>#해시태그</span>
               </TitleHashTag>
 

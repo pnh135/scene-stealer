@@ -8,8 +8,11 @@ import SideBar from '../SideBar';
 import ActionButton, { ActionButtonStyle } from '../ActionButton';
 import { useState } from 'react';
 import supabase from '../../supabase/Client';
+import { useNavigate } from 'react-router-dom';
 
 const AddFeedControl = () => {
+  const navigate = useNavigate();
+
   // "취소" 버튼 클릭 시, 새로 고침으로 인해 폼 리셋
   const resetForm = () => window.location.reload();
 
@@ -19,6 +22,8 @@ const AddFeedControl = () => {
     tagsArray: [],
     tagInput: ''
   });
+
+  const [imageUrl, setImageUrl] = useState('');
 
   const [errorMessage, setErrorMessage] = useState(''); // 에러 메시지 상태 추가
 
@@ -69,15 +74,19 @@ const AddFeedControl = () => {
 
   const handleAddFeed = async (e) => {
     e.preventDefault();
-    const { data } = await supabase
-      .from('news_feeds')
-      .upsert(
-        { title: createFeedInput.feedTitle },
-        { drama_or_movie_title: createFeedInput.contentTitle },
-        { category: createFeedInput.tagInput }
-      )
-      .select();
-    console.log(data);
+    const {
+      data: { user }
+    } = await supabase.auth.getUser();
+    await supabase.from('news_feeds').insert({
+      user_id: user.id,
+      title: createFeedInput.feedTitle,
+      drama_or_movie_title: createFeedInput.contentTitle,
+      category: createFeedInput.tagInput,
+
+      img_url: imageUrl
+    });
+
+    navigate('/main');
   };
 
   return (
@@ -92,8 +101,8 @@ const AddFeedControl = () => {
           <AddFeedContainer>
             <ImgUpLoad>
               {/* supabase로 업로드 받으면 미리보기로 이미지 렌더링 보여주는 창 : supabase 연결 후 구현할 예정 */}
-              <img src="" alt="" />
-              <FileInputs />
+              <img src="" alt="" style={{ width: '300px', height: '300px', backgroundColor: '#bdbdbd' }} />
+              <FileInputs imageUrl={imageUrl} setImageUrl={setImageUrl} />
             </ImgUpLoad>
             <AddFeedFormWrapper>
               <CreateFeedInputs
