@@ -126,7 +126,7 @@ const AddFeedControl = () => {
   );
 };
 
-const AddFeedContainer = styled.div`
+export const AddFeedContainer = styled.div`
   height: calc(100vh - 262px);
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, auto));
@@ -141,7 +141,7 @@ const ImgUpLoad = styled.div`
   justify-content: space-evenly;
 `;
 
-const AddFeedFormWrapper = styled.div`
+export const AddFeedFormWrapper = styled.div`
   padding: 2rem 0;
   display: flex;
   flex-direction: column;

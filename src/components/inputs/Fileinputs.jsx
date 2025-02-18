@@ -95,7 +95,6 @@ const FileInputStyle = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   gap: 1rem;
-  margin-top: 5rem;
 `;
 
 const FileInput = styled.input`
