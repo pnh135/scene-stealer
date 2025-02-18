@@ -100,8 +100,7 @@ const AddFeedControl = () => {
           <ActionButton />
           <AddFeedContainer>
             <ImgUpLoad>
-              {/* supabase로 업로드 받으면 미리보기로 이미지 렌더링 보여주는 창 : supabase 연결 후 구현할 예정 */}
-              <img src="" alt="" style={{ width: '300px', height: '300px', backgroundColor: '#bdbdbd' }} />
+              <img src="" alt="" />
               <FileInputs imageUrl={imageUrl} setImageUrl={setImageUrl} />
             </ImgUpLoad>
             <AddFeedFormWrapper>
