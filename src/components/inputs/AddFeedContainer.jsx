@@ -92,7 +92,7 @@ const AddFeedControl = () => {
           <AddFeedContainer>
             <ImgUpLoad>
               {/* supabase로 업로드 받으면 미리보기로 이미지 렌더링 보여주는 창 : supabase 연결 후 구현할 예정 */}
-              <img src="" alt="" style={{ width: '300px', height: '300px', backgroundColor: '#bdbdbd' }} />
+              <img src="" alt="" />
               <FileInputs />
             </ImgUpLoad>
             <AddFeedFormWrapper>
@@ -117,7 +117,7 @@ const AddFeedControl = () => {
   );
 };
 
-const AddFeedContainer = styled.div`
+export const AddFeedContainer = styled.div`
   height: calc(100vh - 262px);
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, auto));
@@ -132,7 +132,7 @@ const ImgUpLoad = styled.div`
   justify-content: space-evenly;
 `;
 
-const AddFeedFormWrapper = styled.div`
+export const AddFeedFormWrapper = styled.div`
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
