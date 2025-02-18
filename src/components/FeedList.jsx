@@ -1,10 +1,22 @@
 import { useNavigate } from 'react-router-dom';
-import MOCK_DATA from '../data/MOCK_DATA';
 import styled from 'styled-components';
 import { Heart, MessageCircle, Bookmark } from 'lucide-react';
+import supabase from '../supabase/Client';
+import { useEffect, useState } from 'react';
 
 const FeedList = () => {
+  const [newsFeedData, setNewsFeedData] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchNewsFeedData = async () => {
+      const { data } = await supabase.from('news_feeds').select('*');
+      setNewsFeedData(data);
+    };
+    fetchNewsFeedData();
+  }, []);
+
+  // addbook 끝난 후에 한번더 불러오기 (서버 상태 변경x > 불러오기 x)
   const addBookMark = (id) => {
     const currentBookMarks = JSON.parse(localStorage.getItem('bookmark')) || [];
 
@@ -19,10 +31,10 @@ const FeedList = () => {
 
   return (
     <FeedListWrapper>
-      {MOCK_DATA.map((card) => (
+      {newsFeedData.map((card) => (
         <FeedListContent key={card.id} onClick={() => navigate(`/main/detail/${card.id}`)}>
-          <FeedListContentTitle>{card.korean_name}</FeedListContentTitle>
-          <FeedListContentImg src={card.img_url} alt={card.korean_name} />
+          <FeedListContentTitle>{card.title}</FeedListContentTitle>
+          <FeedListContentImg src={card.img_url} alt={card.title} />
           <FeedListIcon>
             <Heart style={{ cursor: 'pointer' }} />
             <MessageCircle style={{ cursor: 'pointer' }} />
