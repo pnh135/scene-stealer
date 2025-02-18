@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import MOCK_DATA from '../data/MOCK_DATA';
 import { Bookmark, Heart } from 'lucide-react';
 import MainHeader from '../components/MainHeader';
 import { MainPageContent, MainPageMain, MainPageSideBar } from './MainPage';

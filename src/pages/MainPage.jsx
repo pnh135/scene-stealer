@@ -43,6 +43,7 @@ export const MainPageSideBar = styled(SideBarWrapper)`
 export const MainPageMain = styled.div`
   flex: 1;
   padding: 1.5rem;
+  min-height: calc(100vh - 156px);
 `;
 
 export default MainPage;
