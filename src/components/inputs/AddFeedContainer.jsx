@@ -1,5 +1,5 @@
 import CreateFeedInputs from './CreateFeedInputs';
-import FileInputs from './FileInputs';
+import FileInputs from './UploadFile';
 import styled from 'styled-components';
 import MainHeader from '../MainHeader';
 import MainFooter from '../MainFooter';
